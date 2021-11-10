@@ -32,7 +32,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Hastaneler
             this.pnlUst = new System.Windows.Forms.Panel();
             this.btnFormCikis = new System.Windows.Forms.Button();
             this.pnlAlt = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnKayit = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -63,13 +63,6 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Hastaneler
             this.txtMail1 = new System.Windows.Forms.TextBox();
             this.txtMail2 = new System.Windows.Forms.TextBox();
             this.txtMail3 = new System.Windows.Forms.TextBox();
-            this.txtYtel1 = new System.Windows.Forms.TextBox();
-            this.txtYtel2 = new System.Windows.Forms.TextBox();
-            this.txtYtel3 = new System.Windows.Forms.TextBox();
-            this.txtYCep1 = new System.Windows.Forms.TextBox();
-            this.txtYCep2 = new System.Windows.Forms.TextBox();
-            this.txtYCep3 = new System.Windows.Forms.TextBox();
-            this.txtVerTcNo = new System.Windows.Forms.TextBox();
             this.txtVergiDairesi = new System.Windows.Forms.TextBox();
             this.txtCariTipi = new System.Windows.Forms.TextBox();
             this.txtDepartman1 = new System.Windows.Forms.ComboBox();
@@ -77,17 +70,27 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Hastaneler
             this.txtDepartman3 = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.txtHastaneTel = new System.Windows.Forms.TextBox();
             this.txtHastaneMail = new System.Windows.Forms.TextBox();
             this.txtSehir = new System.Windows.Forms.ComboBox();
+            this.txtYtel1 = new System.Windows.Forms.MaskedTextBox();
+            this.txtYtel2 = new System.Windows.Forms.MaskedTextBox();
+            this.txtYtel3 = new System.Windows.Forms.MaskedTextBox();
+            this.txtYCep1 = new System.Windows.Forms.MaskedTextBox();
+            this.txtYCep2 = new System.Windows.Forms.MaskedTextBox();
+            this.txtYCep3 = new System.Windows.Forms.MaskedTextBox();
+            this.txtVnTc = new System.Windows.Forms.MaskedTextBox();
+            this.txtHastaneTel = new System.Windows.Forms.MaskedTextBox();
             this.pnlUst.SuspendLayout();
-            this.pnlAlt.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlUst
             // 
             this.pnlUst.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.pnlUst.Controls.Add(this.button2);
+            this.pnlUst.Controls.Add(this.button3);
+            this.pnlUst.Controls.Add(this.button4);
+            this.pnlUst.Controls.Add(this.btnKayit);
             this.pnlUst.Controls.Add(this.btnFormCikis);
             this.pnlUst.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlUst.Location = new System.Drawing.Point(0, 0);
@@ -111,28 +114,24 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Hastaneler
             // pnlAlt
             // 
             this.pnlAlt.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.pnlAlt.Controls.Add(this.button5);
-            this.pnlAlt.Controls.Add(this.button4);
-            this.pnlAlt.Controls.Add(this.button3);
-            this.pnlAlt.Controls.Add(this.button2);
             this.pnlAlt.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlAlt.Location = new System.Drawing.Point(0, 395);
             this.pnlAlt.Name = "pnlAlt";
             this.pnlAlt.Size = new System.Drawing.Size(989, 51);
             this.pnlAlt.TabIndex = 1;
             // 
-            // button5
+            // btnKayit
             // 
-            this.button5.Location = new System.Drawing.Point(659, 16);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 0;
-            this.button5.Text = "button2";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnKayit.Location = new System.Drawing.Point(12, 16);
+            this.btnKayit.Name = "btnKayit";
+            this.btnKayit.Size = new System.Drawing.Size(75, 23);
+            this.btnKayit.TabIndex = 0;
+            this.btnKayit.Text = "button2";
+            this.btnKayit.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(740, 16);
+            this.button4.Location = new System.Drawing.Point(93, 16);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 0;
@@ -141,7 +140,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Hastaneler
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(821, 16);
+            this.button3.Location = new System.Drawing.Point(174, 16);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 0;
@@ -150,7 +149,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Hastaneler
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(902, 16);
+            this.button2.Location = new System.Drawing.Point(255, 16);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 0;
@@ -229,7 +228,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Hastaneler
             // label6
             // 
             this.label6.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.label6.Location = new System.Drawing.Point(446, 78);
+            this.label6.Location = new System.Drawing.Point(430, 245);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(100, 23);
             this.label6.TabIndex = 3;
@@ -395,55 +394,6 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Hastaneler
             this.txtMail3.Size = new System.Drawing.Size(100, 20);
             this.txtMail3.TabIndex = 4;
             // 
-            // txtYtel1
-            // 
-            this.txtYtel1.Location = new System.Drawing.Point(764, 158);
-            this.txtYtel1.Name = "txtYtel1";
-            this.txtYtel1.Size = new System.Drawing.Size(100, 20);
-            this.txtYtel1.TabIndex = 4;
-            // 
-            // txtYtel2
-            // 
-            this.txtYtel2.Location = new System.Drawing.Point(764, 184);
-            this.txtYtel2.Name = "txtYtel2";
-            this.txtYtel2.Size = new System.Drawing.Size(100, 20);
-            this.txtYtel2.TabIndex = 4;
-            // 
-            // txtYtel3
-            // 
-            this.txtYtel3.Location = new System.Drawing.Point(764, 210);
-            this.txtYtel3.Name = "txtYtel3";
-            this.txtYtel3.Size = new System.Drawing.Size(100, 20);
-            this.txtYtel3.TabIndex = 4;
-            // 
-            // txtYCep1
-            // 
-            this.txtYCep1.Location = new System.Drawing.Point(875, 158);
-            this.txtYCep1.Name = "txtYCep1";
-            this.txtYCep1.Size = new System.Drawing.Size(100, 20);
-            this.txtYCep1.TabIndex = 4;
-            // 
-            // txtYCep2
-            // 
-            this.txtYCep2.Location = new System.Drawing.Point(875, 184);
-            this.txtYCep2.Name = "txtYCep2";
-            this.txtYCep2.Size = new System.Drawing.Size(100, 20);
-            this.txtYCep2.TabIndex = 4;
-            // 
-            // txtYCep3
-            // 
-            this.txtYCep3.Location = new System.Drawing.Point(875, 210);
-            this.txtYCep3.Name = "txtYCep3";
-            this.txtYCep3.Size = new System.Drawing.Size(100, 20);
-            this.txtYCep3.TabIndex = 4;
-            // 
-            // txtVerTcNo
-            // 
-            this.txtVerTcNo.Location = new System.Drawing.Point(764, 101);
-            this.txtVerTcNo.Name = "txtVerTcNo";
-            this.txtVerTcNo.Size = new System.Drawing.Size(100, 20);
-            this.txtVerTcNo.TabIndex = 4;
-            // 
             // txtVergiDairesi
             // 
             this.txtVergiDairesi.Location = new System.Drawing.Point(658, 101);
@@ -453,9 +403,9 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Hastaneler
             // 
             // txtCariTipi
             // 
-            this.txtCariTipi.Location = new System.Drawing.Point(552, 78);
+            this.txtCariTipi.Location = new System.Drawing.Point(535, 248);
             this.txtCariTipi.Name = "txtCariTipi";
-            this.txtCariTipi.Size = new System.Drawing.Size(100, 20);
+            this.txtCariTipi.Size = new System.Drawing.Size(117, 20);
             this.txtCariTipi.TabIndex = 4;
             // 
             // txtDepartman1
@@ -502,13 +452,6 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Hastaneler
             this.label16.Text = "Hastane Mail :";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txtHastaneTel
-            // 
-            this.txtHastaneTel.Location = new System.Drawing.Point(327, 65);
-            this.txtHastaneTel.Name = "txtHastaneTel";
-            this.txtHastaneTel.Size = new System.Drawing.Size(100, 20);
-            this.txtHastaneTel.TabIndex = 4;
-            // 
             // txtHastaneMail
             // 
             this.txtHastaneMail.Location = new System.Drawing.Point(327, 92);
@@ -524,33 +467,97 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Hastaneler
             this.txtSehir.Size = new System.Drawing.Size(100, 21);
             this.txtSehir.TabIndex = 5;
             // 
+            // txtYtel1
+            // 
+            this.txtYtel1.Location = new System.Drawing.Point(764, 158);
+            this.txtYtel1.Mask = "(999) 000-0000";
+            this.txtYtel1.Name = "txtYtel1";
+            this.txtYtel1.Size = new System.Drawing.Size(100, 20);
+            this.txtYtel1.TabIndex = 6;
+            // 
+            // txtYtel2
+            // 
+            this.txtYtel2.Location = new System.Drawing.Point(764, 184);
+            this.txtYtel2.Mask = "(999) 000-0000";
+            this.txtYtel2.Name = "txtYtel2";
+            this.txtYtel2.Size = new System.Drawing.Size(100, 20);
+            this.txtYtel2.TabIndex = 6;
+            // 
+            // txtYtel3
+            // 
+            this.txtYtel3.Location = new System.Drawing.Point(764, 210);
+            this.txtYtel3.Mask = "(999) 000-0000";
+            this.txtYtel3.Name = "txtYtel3";
+            this.txtYtel3.Size = new System.Drawing.Size(100, 20);
+            this.txtYtel3.TabIndex = 6;
+            // 
+            // txtYCep1
+            // 
+            this.txtYCep1.Location = new System.Drawing.Point(875, 162);
+            this.txtYCep1.Mask = "(999) 000-0000";
+            this.txtYCep1.Name = "txtYCep1";
+            this.txtYCep1.Size = new System.Drawing.Size(100, 20);
+            this.txtYCep1.TabIndex = 6;
+            // 
+            // txtYCep2
+            // 
+            this.txtYCep2.Location = new System.Drawing.Point(875, 188);
+            this.txtYCep2.Mask = "(999) 000-0000";
+            this.txtYCep2.Name = "txtYCep2";
+            this.txtYCep2.Size = new System.Drawing.Size(100, 20);
+            this.txtYCep2.TabIndex = 6;
+            // 
+            // txtYCep3
+            // 
+            this.txtYCep3.Location = new System.Drawing.Point(875, 214);
+            this.txtYCep3.Mask = "(999) 000-0000";
+            this.txtYCep3.Name = "txtYCep3";
+            this.txtYCep3.Size = new System.Drawing.Size(100, 20);
+            this.txtYCep3.TabIndex = 6;
+            // 
+            // txtVnTc
+            // 
+            this.txtVnTc.Location = new System.Drawing.Point(764, 102);
+            this.txtVnTc.Mask = "00000000000";
+            this.txtVnTc.Name = "txtVnTc";
+            this.txtVnTc.Size = new System.Drawing.Size(100, 20);
+            this.txtVnTc.TabIndex = 6;
+            // 
+            // txtHastaneTel
+            // 
+            this.txtHastaneTel.Location = new System.Drawing.Point(327, 66);
+            this.txtHastaneTel.Mask = "(999) 000-0000";
+            this.txtHastaneTel.Name = "txtHastaneTel";
+            this.txtHastaneTel.Size = new System.Drawing.Size(100, 20);
+            this.txtHastaneTel.TabIndex = 6;
+            // 
             // frmHastaneGiris
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(989, 446);
+            this.Controls.Add(this.txtYCep3);
+            this.Controls.Add(this.txtYtel3);
+            this.Controls.Add(this.txtYCep2);
+            this.Controls.Add(this.txtYtel2);
+            this.Controls.Add(this.txtYCep1);
+            this.Controls.Add(this.txtVnTc);
+            this.Controls.Add(this.txtHastaneTel);
+            this.Controls.Add(this.txtYtel1);
             this.Controls.Add(this.txtSehir);
             this.Controls.Add(this.txtDepartman3);
             this.Controls.Add(this.txtDepartman2);
             this.Controls.Add(this.txtDepartman1);
-            this.Controls.Add(this.txtYCep3);
-            this.Controls.Add(this.txtYtel3);
             this.Controls.Add(this.txtMail3);
             this.Controls.Add(this.txtYet3);
-            this.Controls.Add(this.txtYCep2);
             this.Controls.Add(this.txtCariTipi);
             this.Controls.Add(this.txtVergiDairesi);
-            this.Controls.Add(this.txtVerTcNo);
-            this.Controls.Add(this.txtYCep1);
-            this.Controls.Add(this.txtYtel2);
-            this.Controls.Add(this.txtYtel1);
             this.Controls.Add(this.txtMail2);
             this.Controls.Add(this.txtMail1);
             this.Controls.Add(this.txtYet2);
             this.Controls.Add(this.txtYet1);
             this.Controls.Add(this.txtHastaneMail);
             this.Controls.Add(this.txtAdres2);
-            this.Controls.Add(this.txtHastaneTel);
             this.Controls.Add(this.txtAdres1);
             this.Controls.Add(this.txtHastaneCari);
             this.Controls.Add(this.txtHastaneKodu);
@@ -580,7 +587,6 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Hastaneler
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmHastaneGiris_FormClosing);
             this.Load += new System.EventHandler(this.frmHastaneGiris_Load);
             this.pnlUst.ResumeLayout(false);
-            this.pnlAlt.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -592,7 +598,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Hastaneler
         private System.Windows.Forms.Panel pnlUst;
         private System.Windows.Forms.Button btnFormCikis;
         private System.Windows.Forms.Panel pnlAlt;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnKayit;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
@@ -623,13 +629,6 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Hastaneler
         private System.Windows.Forms.TextBox txtMail1;
         private System.Windows.Forms.TextBox txtMail2;
         private System.Windows.Forms.TextBox txtMail3;
-        private System.Windows.Forms.TextBox txtYtel1;
-        private System.Windows.Forms.TextBox txtYtel2;
-        private System.Windows.Forms.TextBox txtYtel3;
-        private System.Windows.Forms.TextBox txtYCep1;
-        private System.Windows.Forms.TextBox txtYCep2;
-        private System.Windows.Forms.TextBox txtYCep3;
-        private System.Windows.Forms.TextBox txtVerTcNo;
         private System.Windows.Forms.TextBox txtVergiDairesi;
         private System.Windows.Forms.TextBox txtCariTipi;
         private System.Windows.Forms.ComboBox txtDepartman1;
@@ -637,8 +636,15 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Hastaneler
         private System.Windows.Forms.ComboBox txtDepartman3;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox txtHastaneTel;
         private System.Windows.Forms.TextBox txtHastaneMail;
         private System.Windows.Forms.ComboBox txtSehir;
+        private System.Windows.Forms.MaskedTextBox txtYtel1;
+        private System.Windows.Forms.MaskedTextBox txtYtel2;
+        private System.Windows.Forms.MaskedTextBox txtYtel3;
+        private System.Windows.Forms.MaskedTextBox txtYCep1;
+        private System.Windows.Forms.MaskedTextBox txtYCep2;
+        private System.Windows.Forms.MaskedTextBox txtYCep3;
+        private System.Windows.Forms.MaskedTextBox txtVnTc;
+        private System.Windows.Forms.MaskedTextBox txtHastaneTel;
     }
 }
