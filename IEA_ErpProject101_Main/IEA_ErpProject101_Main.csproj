@@ -91,6 +91,10 @@
     <Compile Include="Entity\tblDepartmanlar.cs">
       <DependentUpon>ErpProjectWMPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\tblSehirler.cs">
+      <DependentUpon>ErpProjectWMPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Fonksiyonlar\Numaralar.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +163,10 @@
       <DependentUpon>ErpProjectWMPModel.edmx</DependentUpon>
       <LastGenOutput>ErpProjectWMPModel.cs</LastGenOutput>
     </Content>
+    <None Include="Images\Sil64.png" />
+    <None Include="Images\Sil24x24.png" />
+    <None Include="Images\Update32x32.png" />
+    <None Include="Images\Save-icon32x32.png" />
     <None Include="Images\exit-48.png" />
   </ItemGroup>
   <ItemGroup>

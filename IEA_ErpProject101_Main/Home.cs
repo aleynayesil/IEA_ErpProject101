@@ -85,18 +85,18 @@ namespace IEA_ErpProject101_Main
             string isim = tvBilgiGirisİslemleri.SelectedNode.Text;
             //MessageBox.Show(isim);
 
-            if (isim== "Hastaneler Listesi" && kontrol==false)
+            if (isim== "Hastaneler Listesi" && Application.OpenForms["frmHastanelerListesi"] as frmHastanelerListesi==null)
             {
                 frmHastanelerListesi frm = new frmHastanelerListesi();
                 frm.MdiParent = Form.ActiveForm;
                 frm.Show();
-                kontrol = true;
-            }else if (isim == "Hastane Bilgi Giriş" && kontrol == false)
+               // kontrol = true;
+            }else if (isim == "Hastane Bilgi Giriş" && Application.OpenForms["frmHastaneGiris"] as frmHastaneGiris == null)
             {
                 frmHastaneGiris frm = new frmHastaneGiris();
                 frm.MdiParent = Form.ActiveForm;
                 frm.Show();
-                kontrol = true;
+                //kontrol = true;
 
             }
         }

@@ -368,6 +368,7 @@ namespace IEA_ErpProject101_Main
             this.IsMdiContainer = true;
             this.Name = "Home";
             this.Text = "ErpProject - Home";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Home_Load);
             this.tabUstMenu.ResumeLayout(false);
             this.tabPGenel.ResumeLayout(false);

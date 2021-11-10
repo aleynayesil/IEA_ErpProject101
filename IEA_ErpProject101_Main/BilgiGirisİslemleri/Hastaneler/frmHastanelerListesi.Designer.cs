@@ -35,8 +35,9 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1013, 440);
             this.Name = "frmHastanelerListesi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmHastanelerListesi";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmHastanelerListesi_FormClosing);
             this.Load += new System.EventHandler(this.frmHastanelerListesi_Load);
