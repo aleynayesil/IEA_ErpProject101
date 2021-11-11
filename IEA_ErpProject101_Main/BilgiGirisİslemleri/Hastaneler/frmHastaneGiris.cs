@@ -1,11 +1,13 @@
 ﻿using IEA_ErpProject101_Main.Entity;
 using IEA_ErpProject101_Main.Fonksiyonlar;
+using IEA_ErpProject101_Main.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -31,7 +33,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Hastaneler
             listele();
         }
 
-        private void listele()
+        public void listele()
         {
             Liste.Rows.Clear();
             int i = 0,sira= 1;
@@ -69,6 +71,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Hastaneler
             var lst1 = erp.tblDepartmanlar.Where(x => x.GrupId == 1).ToList();
             var lst2 = erp.tblDepartmanlar.Where(x => x.GrupId == 1).ToList();
             var lst3 = erp.tblSehirler.ToList();
+
 
             txtDepartman1.DataSource = lst;
             txtDepartman1.ValueMember = "Id";
@@ -252,7 +255,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Hastaneler
             Ac(secimId);
         }
 
-        private void Ac(int secimId)
+        public void Ac(int secimId)
         {
             try
             {
@@ -283,12 +286,36 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Hastaneler
                 txtVnTc.Text = hst.Tc_Vn;
                 txtSehir.Text = hst.tblSehirler.sehir;
                 lblHastaneKodu.Text = hst.CariNo;
+                txtKayıtBul.Text = hst.CariNo;
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
                 throw;
             }
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            var btn = new Button();
+            btn.Size = new Size(25, txtKayıtBul.ClientSize.Height + 0);
+            btn.Location = new Point(txtKayıtBul.ClientSize.Width - btn.Width +1);
+            btn.Cursor = Cursors.Default;
+            btn.Image = Resources.arrow_1176;
+            txtKayıtBul.Controls.Add(btn);
+            base.OnLoad(e);
+            btn.Click += btn_Click;
+        }
+
+        [DllImport("user32.dll")]
+        private static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wp, IntPtr lp);
+
+        private void btn_Click(object sender, EventArgs e)
+        {
+            frmHastanelerListesi frm = new frmHastanelerListesi();
+            frm.MdiParent = Form.ActiveForm;
+            frm.Show();
+
         }
     }
 }
