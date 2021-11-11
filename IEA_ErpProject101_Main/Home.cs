@@ -1,4 +1,5 @@
 ﻿using IEA_ErpProject101_Main.BilgiGirisİslemleri;
+using IEA_ErpProject101_Main.BilgiGirisİslemleri.Doktorlar;
 using IEA_ErpProject101_Main.BilgiGirisİslemleri.Hastaneler;
 using System;
 using System.Collections.Generic;
@@ -81,8 +82,13 @@ namespace IEA_ErpProject101_Main
         public static bool kontrol = false;
         private void tvBilgiGirisİslemleri_DoubleClick(object sender, EventArgs e)
         {
-            
-            string isim = tvBilgiGirisİslemleri.SelectedNode.Text;
+
+            //string isim = "";
+            //if (tvBilgiGirisİslemleri.SelectedNode!=null)
+            //{
+            //    isim = tvBilgiGirisİslemleri.SelectedNode.Text;
+            //}
+            string isim = tvBilgiGirisİslemleri.SelectedNode != null ? tvBilgiGirisİslemleri.SelectedNode.Text : "";
             //MessageBox.Show(isim);
 
             if (isim== "Hastaneler Listesi" && Application.OpenForms["frmHastanelerListesi"] as frmHastanelerListesi==null)
@@ -98,6 +104,17 @@ namespace IEA_ErpProject101_Main
                 frm.Show();
                 //kontrol = true;
 
+            }else if (isim == "Doktor Bilgi Giriş" && Application.OpenForms["frmDoktorGiris"] == null)
+            {
+                frmDoktorGiris frm = new frmDoktorGiris();
+                frm.MdiParent = Form.ActiveForm;
+                frm.Show();
+            }
+            else if (isim == "Doktorlar Listesi" && Application.OpenForms["frmDoktorlarListesi"] == null)
+            {
+                frmDoktorlarListesi frm = new frmDoktorlarListesi();
+                frm.MdiParent = Form.ActiveForm;
+                frm.Show();
             }
         }
     }

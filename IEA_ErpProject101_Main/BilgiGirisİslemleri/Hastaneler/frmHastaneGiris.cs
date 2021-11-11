@@ -255,11 +255,12 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Hastaneler
             Ac(secimId);
         }
 
-        public void Ac(int secimId)
+        public void Ac(int id)
         {
+            secimId = id;//dış formdan veri gelirse secimId hatası almamak için bu işlem yapılır.
             try
             {
-                tblCariler hst = erp.tblCariler.Find(secimId);
+                tblCariler hst = erp.tblCariler.Find(id);
                 hst.isActive = true;
                 txtHastaneAdi.Text = hst.CariAdi;
                 txtHastaneMail.Text = hst.CariMail;
@@ -312,9 +313,14 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Hastaneler
 
         private void btn_Click(object sender, EventArgs e)
         {
-            frmHastanelerListesi frm = new frmHastanelerListesi();
-            frm.MdiParent = Form.ActiveForm;
-            frm.Show();
+            
+            if (Application.OpenForms["frmHastanelerListesi"] is null)
+            {
+                frmHastanelerListesi frm = new frmHastanelerListesi();
+                frm.MdiParent = Form.ActiveForm;
+                frm.Show();
+            }
+            SendToBack();
 
         }
     }
