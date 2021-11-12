@@ -12,6 +12,8 @@
         <AssociationConnector Association="ErpProjectWMPModel.FK_tblDepartmanlar_tblCariGruplari" />
         <EntityTypeShape EntityType="ErpProjectWMPModel.tblSehirler" Width="1.5" PointX="5.375" PointY="4.875" />
         <AssociationConnector Association="ErpProjectWMPModel.FK_tblCariler_tblSehirler" />
+        <EntityTypeShape EntityType="ErpProjectWMPModel.tblPersonelDetay" Width="1.5" PointX="5.125" PointY="7.75" />
+        <AssociationConnector Association="ErpProjectWMPModel.FK_tblPersonelDetay_tblCariler" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

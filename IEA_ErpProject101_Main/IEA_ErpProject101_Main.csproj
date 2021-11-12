@@ -79,6 +79,18 @@
     <Compile Include="BilgiGirisİslemleri\Hastaneler\frmHastanelerListesi.Designer.cs">
       <DependentUpon>frmHastanelerListesi.cs</DependentUpon>
     </Compile>
+    <Compile Include="BilgiGirisİslemleri\Personeller\frmPersonelGiris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BilgiGirisİslemleri\Personeller\frmPersonelGiris.Designer.cs">
+      <DependentUpon>frmPersonelGiris.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BilgiGirisİslemleri\Personeller\frmPersonellerListesi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BilgiGirisİslemleri\Personeller\frmPersonellerListesi.Designer.cs">
+      <DependentUpon>frmPersonellerListesi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entity\ErpProjectWMPModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -103,10 +115,14 @@
     <Compile Include="Entity\tblDepartmanlar.cs">
       <DependentUpon>ErpProjectWMPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\tblPersonelDetay.cs">
+      <DependentUpon>ErpProjectWMPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\tblSehirler.cs">
       <DependentUpon>ErpProjectWMPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Fonksiyonlar\DoktorUnvan.cs" />
+    <Compile Include="Fonksiyonlar\enumPersonelUnvan.cs" />
     <Compile Include="Fonksiyonlar\Numaralar.cs" />
     <Compile Include="frmDoktorListesi.cs" />
     <Compile Include="Home.cs">
@@ -128,6 +144,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BilgiGirisİslemleri\Hastaneler\frmHastanelerListesi.resx">
       <DependentUpon>frmHastanelerListesi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BilgiGirisİslemleri\Personeller\frmPersonelGiris.resx">
+      <DependentUpon>frmPersonelGiris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BilgiGirisİslemleri\Personeller\frmPersonellerListesi.resx">
+      <DependentUpon>frmPersonellerListesi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
