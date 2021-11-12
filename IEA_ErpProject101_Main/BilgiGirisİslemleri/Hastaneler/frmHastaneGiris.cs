@@ -28,7 +28,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Hastaneler
 
         private void frmHastaneGiris_Load(object sender, EventArgs e)
         {
-            //lblHastaneKodu.Text = n.CariKoduHastane();
+            lblHastaneKodu.Text = n.CariKoduHastane();
             comboDoldur();
             listele();
         }
@@ -39,6 +39,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Hastaneler
             int i = 0,sira= 1;
             var lst = (from s in erp.tblCariler
                        where s.isActive == true
+                       where s.CariGroupId==1
                        select new
                        {
                            id = s.Id,
@@ -141,7 +142,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Hastaneler
                     hst.Adres2 = txtAdres2.Text;
                     hst.CariGroupId = 1;
                     hst.CariTipId = 1;//formda combobox olacak
-                    hst.CariUnvan = txtHastaneCari.Text;
+                  hst.CariUnvan = txtHastaneCari.Text;
                     hst.Vdairesi = txtVergiDairesi.Text;
                     hst.Tc_Vn = txtVnTc.Text;
                     hst.SehirId = (int?)txtSehir.SelectedValue ?? -1; //txtSehir.SelectedValue != null ? (int)txtSehir.SelectedValue : -1; //erp.tblSehirler.First(x => x.sehir == txtSehir.Text).id;
@@ -175,6 +176,11 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Hastaneler
 
         private void Guncelle()
         {
+
+            if (secimId < 0)
+            {
+                return;
+            }
             try
             {
                 tblCariler hst = erp.tblCariler.Find(secimId);

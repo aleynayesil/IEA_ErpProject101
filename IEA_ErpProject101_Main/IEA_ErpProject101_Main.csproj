@@ -67,6 +67,18 @@
     <Compile Include="BilgiGirisİslemleri\Doktorlar\frmDoktorlarListesi.Designer.cs">
       <DependentUpon>frmDoktorlarListesi.cs</DependentUpon>
     </Compile>
+    <Compile Include="BilgiGirisİslemleri\Firma\frmFirmaGiris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BilgiGirisİslemleri\Firma\frmFirmaGiris.Designer.cs">
+      <DependentUpon>frmFirmaGiris.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BilgiGirisİslemleri\Firma\frmFirmalarListesi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BilgiGirisİslemleri\Firma\frmFirmalarListesi.Designer.cs">
+      <DependentUpon>frmFirmalarListesi.cs</DependentUpon>
+    </Compile>
     <Compile Include="BilgiGirisİslemleri\Hastaneler\frmHastaneGiris.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +134,7 @@
       <DependentUpon>ErpProjectWMPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Fonksiyonlar\DoktorUnvan.cs" />
+    <Compile Include="Fonksiyonlar\enumFirmaTipi.cs" />
     <Compile Include="Fonksiyonlar\enumPersonelUnvan.cs" />
     <Compile Include="Fonksiyonlar\Numaralar.cs" />
     <Compile Include="frmDoktorListesi.cs" />
@@ -138,6 +151,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BilgiGirisİslemleri\Doktorlar\frmDoktorlarListesi.resx">
       <DependentUpon>frmDoktorlarListesi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BilgiGirisİslemleri\Firma\frmFirmaGiris.resx">
+      <DependentUpon>frmFirmaGiris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BilgiGirisİslemleri\Firma\frmFirmalarListesi.resx">
+      <DependentUpon>frmFirmalarListesi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BilgiGirisİslemleri\Hastaneler\frmHastaneGiris.resx">
       <DependentUpon>frmHastaneGiris.cs</DependentUpon>

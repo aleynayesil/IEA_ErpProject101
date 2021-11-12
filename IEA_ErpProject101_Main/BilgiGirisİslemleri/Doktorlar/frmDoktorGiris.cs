@@ -123,7 +123,10 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Doktorlar
                     dr.CariUnvan = txtDUnvan.Text;
                     dr.Vdairesi = txtVergiDairesi.Text;
                     dr.Tc_Vn = txtVnTc.Text;
-                    dr.SehirId = (int?)txtSehir.SelectedValue ?? -1; //txtSehir.SelectedValue != null ? (int)txtSehir.SelectedValue : -1; //erp.tblSehirler.First(x => x.sehir == txtSehir.Text).id;
+                    if (txtSehir.Text != "")
+                    {
+                        dr.SehirId = (int?)txtSehir.SelectedValue ?? -1;
+                    } //txtSehir.SelectedValue != null ? (int)txtSehir.SelectedValue : -1; //erp.tblSehirler.First(x => x.sehir == txtSehir.Text).id;
                     dr.SaveUserId = 1;
                     dr.SaveDate = DateTime.Now;
                     dr.CariNo = dkodu;
@@ -155,6 +158,10 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Doktorlar
 
         private void Guncelle()
         {
+            if (secimId < 0)
+            {
+                return;
+            }
             try
             {
                 tblCariler dr = erp.tblCariler.Find(secimId);
@@ -237,7 +244,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Doktorlar
                 txtDUnvan.Text = dr.CariUnvan;
                 txtVergiDairesi.Text = dr.Vdairesi;
                 txtVnTc.Text = dr.Tc_Vn;
-                txtSehir.Text = dr.tblSehirler.sehir;
+                txtSehir.Text = dr.tblSehirler == null ? "" : dr.tblSehirler.sehir;
                 lblDoktorKodu.Text = dr.CariNo;
                 txtKayıtBul.Text =dr.CariNo;
             }
