@@ -3,6 +3,7 @@ using IEA_ErpProject101_Main.BilgiGirisİslemleri.Doktorlar;
 using IEA_ErpProject101_Main.BilgiGirisİslemleri.Firma;
 using IEA_ErpProject101_Main.BilgiGirisİslemleri.Hastaneler;
 using IEA_ErpProject101_Main.BilgiGirisİslemleri.Personeller;
+using IEA_ErpProject101_Main.Urunİslemleri;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -52,7 +53,13 @@ namespace IEA_ErpProject101_Main
             #region Depo İşlemleri Menusu
             tvDepoİslemleri.Nodes.Add("Depo İşlemleri");
             tvDepoİslemleri.Nodes[0].Nodes.Add("Depo Stok Durum");
-            tvDepoİslemleri.Nodes[0].Nodes.Add("Depo Sevkiyat Listesi"); 
+            tvDepoİslemleri.Nodes[0].Nodes.Add("Depo Sevkiyat Listesi");
+            #endregion
+
+            #region Urun İslemleri
+            tvUrunİslemleri.Nodes.Add("Ürün İşlemleri");
+            tvUrunİslemleri.Nodes[0].Nodes.Add("Ürün Giriş");
+            tvUrunİslemleri.Nodes[0].Nodes.Add("Ürünler Listesi"); 
             #endregion
         }
 
@@ -60,7 +67,7 @@ namespace IEA_ErpProject101_Main
         {
             tvBilgiGirisİslemleri.Visible = false;
             tvDepoİslemleri.Visible = false;
-            tv3.Visible = false;
+            tvUrunİslemleri.Visible = false;
             tv4.Visible = false;
             tv5.Visible = false;
             tv6.Visible = false;
@@ -79,17 +86,21 @@ namespace IEA_ErpProject101_Main
             tvBilgiGirisİslemleri.Visible = true;
 
         }
-
         private void btnDepoİslemleri_Click(object sender, EventArgs e)
         {
             lblBilgiEkrani.Text = btnDepoİslemleri.Text;
             TvGorunum();
             tvDepoİslemleri.Visible = true;
         }
+        private void btnUrunİslemleri_Click(object sender, EventArgs e)
+        {
+            lblBilgiEkrani.Text = btnUrunİslemleri.Text;
+            TvGorunum();
+            tvUrunİslemleri.Visible = true;
+        }
         public static bool kontrol = false;
         private void tvBilgiGirisİslemleri_DoubleClick(object sender, EventArgs e)
         {
-
             //string isim = "";
             //if (tvBilgiGirisİslemleri.SelectedNode!=null)
             //{
@@ -146,6 +157,25 @@ namespace IEA_ErpProject101_Main
                 frmFirmalarListesi frm = new frmFirmalarListesi();
                 frm.MdiParent = Form.ActiveForm;
                 frm.Show();
+            }
+        }
+
+        private void tvUrunİslemleri_DoubleClick(object sender, EventArgs e)
+        {
+            string isim = tvUrunİslemleri.SelectedNode != null ? tvUrunİslemleri.SelectedNode.Text : "";
+
+             if (isim == "Ürün Giriş" && Application.OpenForms["frmUrunGiris"] == null)
+            {
+                frmUrunGiris frm = new frmUrunGiris();
+                frm.MdiParent = Form.ActiveForm;
+                frm.Show();
+            }
+            else if (isim == "Ürünler Listesi" && Application.OpenForms["frmUrunlerListesi"] == null)
+            {
+                frmUrunlerListesi frm = new frmUrunlerListesi();
+                frm.MdiParent = Form.ActiveForm;
+                frm.Show();
+                frm.Activate();
             }
         }
     }
