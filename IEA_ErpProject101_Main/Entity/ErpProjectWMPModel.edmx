@@ -83,17 +83,12 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UrunGenelNo" Type="nvarchar" MaxLength="50" />
           <Property Name="UrunKodu" Type="nvarchar" MaxLength="50" />
-          <Property Name="UrunLotSeri" Type="nvarchar" MaxLength="50" />
-          <Property Name="Barkod" Type="nvarchar" MaxLength="50" />
-          <Property Name="SonKulTar" Type="datetime" />
-          <Property Name="UretimTar" Type="datetime" />
           <Property Name="UrunAdı" Type="nvarchar" MaxLength="50" />
           <Property Name="UrunAciklama" Type="nvarchar(max)" />
           <Property Name="Kutuİcerik" Type="nvarchar(max)" />
           <Property Name="TedarikciFirmaId" Type="int" />
           <Property Name="AlısFiyat" Type="decimal" Precision="11" Scale="2" />
           <Property Name="SatisFiyat" Type="decimal" Precision="11" Scale="2" />
-          <Property Name="KullanımSüresiGun" Type="int" />
           <Property Name="SaveDate" Type="datetime" />
           <Property Name="SaveUserId" Type="int" />
           <Property Name="UpdateDate" Type="datetime" />
@@ -355,17 +350,12 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UrunGenelNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UrunKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="UrunLotSeri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Barkod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SonKulTar" Type="DateTime" Precision="3" />
-          <Property Name="UretimTar" Type="DateTime" Precision="3" />
           <Property Name="UrunAdı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UrunAciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Kutuİcerik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="TedarikciFirmaId" Type="Int32" />
           <Property Name="AlısFiyat" Type="Decimal" Precision="11" Scale="2" />
           <Property Name="SatisFiyat" Type="Decimal" Precision="11" Scale="2" />
-          <Property Name="KullanımSüresiGun" Type="Int32" />
           <Property Name="SaveDate" Type="DateTime" Precision="3" />
           <Property Name="SaveUserId" Type="Int32" />
           <Property Name="UpdateDate" Type="DateTime" Precision="3" />
@@ -475,17 +465,12 @@
                 <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
                 <ScalarProperty Name="SaveUserId" ColumnName="SaveUserId" />
                 <ScalarProperty Name="SaveDate" ColumnName="SaveDate" />
-                <ScalarProperty Name="KullanımSüresiGun" ColumnName="KullanımSüresiGun" />
                 <ScalarProperty Name="SatisFiyat" ColumnName="SatisFiyat" />
                 <ScalarProperty Name="AlısFiyat" ColumnName="AlısFiyat" />
                 <ScalarProperty Name="TedarikciFirmaId" ColumnName="TedarikciFirmaId" />
                 <ScalarProperty Name="Kutuİcerik" ColumnName="Kutuİcerik" />
                 <ScalarProperty Name="UrunAciklama" ColumnName="UrunAciklama" />
                 <ScalarProperty Name="UrunAdı" ColumnName="UrunAdı" />
-                <ScalarProperty Name="UretimTar" ColumnName="UretimTar" />
-                <ScalarProperty Name="SonKulTar" ColumnName="SonKulTar" />
-                <ScalarProperty Name="Barkod" ColumnName="Barkod" />
-                <ScalarProperty Name="UrunLotSeri" ColumnName="UrunLotSeri" />
                 <ScalarProperty Name="UrunKodu" ColumnName="UrunKodu" />
                 <ScalarProperty Name="UrunGenelNo" ColumnName="UrunGenelNo" />
                 <ScalarProperty Name="Id" ColumnName="Id" />

@@ -134,7 +134,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Firma
 
                    // hst.CariUnvan = txtHastaneCari.Text;
                     hst.CariTipId =txtFTip.SelectedIndex +1;
-
+                    hst.CariUnvan = txtFTip.Text;
                     hst.Vdairesi = txtVergiDairesi.Text;
                     hst.Tc_Vn = txtVnTc.Text;
                     if (txtSehir.Text!="")
@@ -197,13 +197,17 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Firma
                 hst.YetkiliMail3 = txtFYMail3.Text;
                 hst.Adres1 = txtAdres1.Text;
                 hst.Adres2 = txtAdres2.Text;
-                hst.CariTipId = txtFTip.SelectedIndex + 1;//formda combobox olacak
+                if (txtFTip.Text != "")
+                {
+                    hst.CariTipId = (int)txtFTip.SelectedIndex;
+
+                }
                 hst.Vdairesi = txtVergiDairesi.Text;
                 hst.Tc_Vn = txtVnTc.Text;
                 hst.SehirId = (int?)txtSehir.SelectedValue ?? -1; //txtSehir.SelectedValue != null ? (int)txtSehir.SelectedValue : -1; //erp.tblSehirler.First(x => x.sehir == txtSehir.Text).id;
                 hst.UpdateUserId = 1;
                 hst.UpdateDate = DateTime.Now;
-
+                hst.CariUnvan = txtFTip.Text;
                 erp.SaveChanges();
 
                 MessageBox.Show("Güncelleme Başarılı.");
@@ -269,9 +273,9 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Firma
         private void btn_Click(object sender, EventArgs e)
         {
 
-            if (Application.OpenForms["frmFirmaGiris"] is null)
+            if (Application.OpenForms["frmFirmalarListesi"] is null)
             {
-                frmFirmaGiris frm = new frmFirmaGiris();
+                frmFirmalarListesi frm = new frmFirmalarListesi();
                 frm.MdiParent = Form.ActiveForm;
                 frm.Show();
             }
@@ -312,6 +316,8 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Firma
                 txtAdres2.Text = hst.Adres2;
                 txtVergiDairesi.Text = hst.Vdairesi;
                 txtVnTc.Text = hst.Tc_Vn;
+
+               
                 if (hst.tblSehirler!=null)
                 {
                     txtSehir.Text = hst.tblSehirler.sehir;

@@ -31,6 +31,11 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Firma
         {
             this.pnlUst = new System.Windows.Forms.Panel();
             this.lblFirmaKodu = new System.Windows.Forms.Label();
+            this.btnTemizle = new System.Windows.Forms.Button();
+            this.btnSil = new System.Windows.Forms.Button();
+            this.btnGuncelle = new System.Windows.Forms.Button();
+            this.btnKayit = new System.Windows.Forms.Button();
+            this.btnFormCikis = new System.Windows.Forms.Button();
             this.Liste = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sira = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,11 +45,6 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Firma
             this.CariMail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirmaYetkili = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirYet = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnTemizle = new System.Windows.Forms.Button();
-            this.btnSil = new System.Windows.Forms.Button();
-            this.btnGuncelle = new System.Windows.Forms.Button();
-            this.btnKayit = new System.Windows.Forms.Button();
-            this.btnFormCikis = new System.Windows.Forms.Button();
             this.pnlUst.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).BeginInit();
             this.SuspendLayout();
@@ -75,6 +75,58 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Firma
             this.lblFirmaKodu.Text = "***";
             this.lblFirmaKodu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnTemizle
+            // 
+            this.btnTemizle.BackgroundImage = global::IEA_ErpProject101_Main.Properties.Resources.Sil64;
+            this.btnTemizle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnTemizle.Location = new System.Drawing.Point(144, 9);
+            this.btnTemizle.Name = "btnTemizle";
+            this.btnTemizle.Size = new System.Drawing.Size(38, 37);
+            this.btnTemizle.TabIndex = 0;
+            this.btnTemizle.UseVisualStyleBackColor = true;
+            // 
+            // btnSil
+            // 
+            this.btnSil.BackgroundImage = global::IEA_ErpProject101_Main.Properties.Resources.Sil24x24;
+            this.btnSil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSil.Location = new System.Drawing.Point(100, 9);
+            this.btnSil.Name = "btnSil";
+            this.btnSil.Size = new System.Drawing.Size(38, 37);
+            this.btnSil.TabIndex = 0;
+            this.btnSil.UseVisualStyleBackColor = true;
+            // 
+            // btnGuncelle
+            // 
+            this.btnGuncelle.BackgroundImage = global::IEA_ErpProject101_Main.Properties.Resources.Update32x32;
+            this.btnGuncelle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnGuncelle.Location = new System.Drawing.Point(56, 9);
+            this.btnGuncelle.Name = "btnGuncelle";
+            this.btnGuncelle.Size = new System.Drawing.Size(38, 37);
+            this.btnGuncelle.TabIndex = 0;
+            this.btnGuncelle.UseVisualStyleBackColor = true;
+            // 
+            // btnKayit
+            // 
+            this.btnKayit.BackgroundImage = global::IEA_ErpProject101_Main.Properties.Resources.Save_icon32x32;
+            this.btnKayit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnKayit.Location = new System.Drawing.Point(12, 9);
+            this.btnKayit.Name = "btnKayit";
+            this.btnKayit.Size = new System.Drawing.Size(38, 37);
+            this.btnKayit.TabIndex = 0;
+            this.btnKayit.UseVisualStyleBackColor = true;
+            // 
+            // btnFormCikis
+            // 
+            this.btnFormCikis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFormCikis.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnFormCikis.BackgroundImage = global::IEA_ErpProject101_Main.Properties.Resources.exit_48;
+            this.btnFormCikis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnFormCikis.Location = new System.Drawing.Point(755, 12);
+            this.btnFormCikis.Name = "btnFormCikis";
+            this.btnFormCikis.Size = new System.Drawing.Size(33, 30);
+            this.btnFormCikis.TabIndex = 0;
+            this.btnFormCikis.UseVisualStyleBackColor = false;
+            // 
             // Liste
             // 
             this.Liste.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -92,7 +144,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Firma
             this.Liste.Name = "Liste";
             this.Liste.Size = new System.Drawing.Size(800, 394);
             this.Liste.TabIndex = 20;
-            this.Liste.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Liste_CellContentClick);
+            this.Liste.DoubleClick += new System.EventHandler(this.Liste_DoubleClick);
             // 
             // Id
             // 
@@ -146,58 +198,6 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Firma
             this.FirYet.HeaderText = "Yetkili Cep No";
             this.FirYet.Name = "FirYet";
             this.FirYet.Width = 99;
-            // 
-            // btnTemizle
-            // 
-            this.btnTemizle.BackgroundImage = global::IEA_ErpProject101_Main.Properties.Resources.Sil64;
-            this.btnTemizle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnTemizle.Location = new System.Drawing.Point(144, 9);
-            this.btnTemizle.Name = "btnTemizle";
-            this.btnTemizle.Size = new System.Drawing.Size(38, 37);
-            this.btnTemizle.TabIndex = 0;
-            this.btnTemizle.UseVisualStyleBackColor = true;
-            // 
-            // btnSil
-            // 
-            this.btnSil.BackgroundImage = global::IEA_ErpProject101_Main.Properties.Resources.Sil24x24;
-            this.btnSil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSil.Location = new System.Drawing.Point(100, 9);
-            this.btnSil.Name = "btnSil";
-            this.btnSil.Size = new System.Drawing.Size(38, 37);
-            this.btnSil.TabIndex = 0;
-            this.btnSil.UseVisualStyleBackColor = true;
-            // 
-            // btnGuncelle
-            // 
-            this.btnGuncelle.BackgroundImage = global::IEA_ErpProject101_Main.Properties.Resources.Update32x32;
-            this.btnGuncelle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnGuncelle.Location = new System.Drawing.Point(56, 9);
-            this.btnGuncelle.Name = "btnGuncelle";
-            this.btnGuncelle.Size = new System.Drawing.Size(38, 37);
-            this.btnGuncelle.TabIndex = 0;
-            this.btnGuncelle.UseVisualStyleBackColor = true;
-            // 
-            // btnKayit
-            // 
-            this.btnKayit.BackgroundImage = global::IEA_ErpProject101_Main.Properties.Resources.Save_icon32x32;
-            this.btnKayit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnKayit.Location = new System.Drawing.Point(12, 9);
-            this.btnKayit.Name = "btnKayit";
-            this.btnKayit.Size = new System.Drawing.Size(38, 37);
-            this.btnKayit.TabIndex = 0;
-            this.btnKayit.UseVisualStyleBackColor = true;
-            // 
-            // btnFormCikis
-            // 
-            this.btnFormCikis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFormCikis.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.btnFormCikis.BackgroundImage = global::IEA_ErpProject101_Main.Properties.Resources.exit_48;
-            this.btnFormCikis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnFormCikis.Location = new System.Drawing.Point(755, 12);
-            this.btnFormCikis.Name = "btnFormCikis";
-            this.btnFormCikis.Size = new System.Drawing.Size(33, 30);
-            this.btnFormCikis.TabIndex = 0;
-            this.btnFormCikis.UseVisualStyleBackColor = false;
             // 
             // frmFirmalarListesi
             // 

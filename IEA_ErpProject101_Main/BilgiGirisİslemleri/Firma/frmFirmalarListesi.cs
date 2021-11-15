@@ -58,7 +58,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Firma
             Liste.AllowUserToAddRows = false;
         }
 
-        private void Liste_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void Liste_DoubleClick(object sender, EventArgs e)
         {
             secimId = (int?)Liste.CurrentRow.Cells[0].Value ?? -1;
             if (secimId > 0 && Application.OpenForms["frmFirmaGiris"] == null)//form açık değilse

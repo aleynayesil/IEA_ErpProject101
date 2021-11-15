@@ -17,17 +17,12 @@ namespace IEA_ErpProject101_Main.Entity
         public int Id { get; set; }
         public string UrunGenelNo { get; set; }
         public string UrunKodu { get; set; }
-        public string UrunLotSeri { get; set; }
-        public string Barkod { get; set; }
-        public Nullable<System.DateTime> SonKulTar { get; set; }
-        public Nullable<System.DateTime> UretimTar { get; set; }
         public string UrunAdı { get; set; }
         public string UrunAciklama { get; set; }
         public string Kutuİcerik { get; set; }
         public Nullable<int> TedarikciFirmaId { get; set; }
         public Nullable<decimal> AlısFiyat { get; set; }
         public Nullable<decimal> SatisFiyat { get; set; }
-        public Nullable<int> KullanımSüresiGun { get; set; }
         public Nullable<System.DateTime> SaveDate { get; set; }
         public Nullable<int> SaveUserId { get; set; }
         public Nullable<System.DateTime> UpdateDate { get; set; }

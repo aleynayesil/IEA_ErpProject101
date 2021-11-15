@@ -198,6 +198,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Urunİslemleri\frmUrunGiris.resx">
+      <DependentUpon>frmUrunGiris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Urunİslemleri\frmUrunlerListesi.resx">
+      <DependentUpon>frmUrunlerListesi.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="Entity\ErpProjectWMPModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ErpProjectWMPModel.Designer.cs</LastGenOutput>
