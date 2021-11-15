@@ -17,21 +17,21 @@ namespace Interfaces
 
             //ICustomerDal[] cd = new ICustomerDal[2]
             //{
-            //    { new UseSqlDal();
-            //      new UseOracle();
-            //    }
+            //     new UseSqlDal(),
+            //    new UseOracle()
+
             //};
             //foreach (var customerDal in cd)
             //{
             //    customerDal.Add();
             //};
 
-    //CustomerManager cm = new CustomerManager();
-    //{
-    //    cm.Add(new UseSqlDal());
-    //    cm.Add(new UseOracle());
-    //}
-    Console.ReadLine();
+            //CustomerManager cm = new CustomerManager();
+            //{
+            //    cm.Add(new UseSqlDal());
+            //    cm.Add(new UseOracle());
+            //}
+            Console.ReadLine();
 
         }
 
@@ -65,7 +65,7 @@ namespace Interfaces
     {
         //Temel(base) nesne  oluşturup diğer nesneleri ondan implemente etmektir
         //soyut nesneler tek başlarına anlam ifade etmezler ve somut nesnelere ihtiyaç duyarlar.
-        int id{get;set; }
+        int id { get; set; }
         string Name { get; set; }
         string Lastname { get; set; }
     }
@@ -81,7 +81,7 @@ namespace Interfaces
 
     class Student : IPerson
     {
-        public int id {get; set ; }
+        public int id { get; set; }
         public string Name { get; set; }
         public string Lastname { get; set; }
         public string StudentNo { get; set; }
