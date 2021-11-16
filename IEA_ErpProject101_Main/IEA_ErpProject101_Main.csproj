@@ -140,7 +140,6 @@
     <Compile Include="Fonksiyonlar\enumFirmaTipi.cs" />
     <Compile Include="Fonksiyonlar\enumPersonelUnvan.cs" />
     <Compile Include="Fonksiyonlar\Numaralar.cs" />
-    <Compile Include="frmDoktorListesi.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>

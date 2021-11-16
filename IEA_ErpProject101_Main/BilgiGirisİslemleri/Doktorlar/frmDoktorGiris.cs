@@ -23,6 +23,8 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Doktorlar
         private Numaralar n = new Numaralar();
 
         public int secimId = -1;
+
+        private tblCariler idyeGoreBul;
         public frmDoktorGiris()
         {
             InitializeComponent();
@@ -164,7 +166,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Doktorlar
             }
             try
             {
-                tblCariler dr = erp.tblCariler.Find(secimId);
+                tblCariler dr = idyeGoreBul;
                 dr.CariAdi = txtDoktorAdi.Text;
                 dr.CariMail = txtDoktorMail.Text;
                 dr.CariTel = txtDoktorTel.Text;
@@ -196,7 +198,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Doktorlar
         {
             if (secimId > 0)
             {
-                tblCariler dr = erp.tblCariler.Find(secimId);
+                tblCariler dr =idyeGoreBul;
                 dr.isActive = false;
                 erp.SaveChanges();
                 MessageBox.Show("Silme Başarılı");
@@ -230,9 +232,10 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Doktorlar
         public void Ac(int id)
         {
             secimId = id;//dış formdan veri gelirse secimId hatası almamak için bu işlem yapılır.
+            idyeGoreBul = erp.tblCariler.Find(id);
             try
             {
-                tblCariler dr = erp.tblCariler.Find(id);
+                tblCariler dr = idyeGoreBul;
                 dr.isActive = true;
                 txtDoktorAdi.Text = dr.CariAdi;
                 txtDoktorMail.Text =dr.CariMail;
