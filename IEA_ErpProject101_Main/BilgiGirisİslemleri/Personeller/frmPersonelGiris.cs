@@ -153,7 +153,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Personeller
             }
             try
             {
-                tblPersonelDetay dr = erp.tblPersonelDetay.First(x => x.Id == secimId);
+                tblPersonelDetay dr = Home.tblPersonelDetayId;
                 dr.tblCariler.CariAdi = txtPersonelAdi.Text;
                 dr.tblCariler.CariMail = txtPersonelMail.Text;
                 dr.tblCariler.CariTel = txtPersonelTel.Text;
@@ -240,10 +240,11 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Personeller
         public void Ac(int id)
         {
             secimId = id;//dış formdan veri gelirse secimId hatası almamak için bu işlem yapılır.
+            Home.tblPersonelDetayId = erp.tblPersonelDetay.Find(id);
             try
             {
                 txtDurum.Visible = true;
-                tblPersonelDetay dr = erp.tblPersonelDetay.Find(id);
+                tblPersonelDetay dr = Home.tblPersonelDetayId;
                 txtPersonelAdi.Text = dr.tblCariler.CariAdi;
                 txtPersonelMail.Text = dr.tblCariler.CariMail;
                 txtPersonelTel.Text = dr.tblCariler.CariTel;

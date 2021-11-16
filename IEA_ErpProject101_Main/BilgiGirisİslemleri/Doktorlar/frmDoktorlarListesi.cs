@@ -16,6 +16,8 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Doktorlar
         private ErpProjectWMPEntities erp = new ErpProjectWMPEntities();
 
         public int secimId = -1;
+
+        public bool Secim = false;
         public frmDoktorlarListesi()
         {
             InitializeComponent();
@@ -31,7 +33,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Doktorlar
             Liste.Rows.Clear();
             int i = 0, sira = 1;
             var lst = (from s in erp.tblCariler
-                       where s.isActive == true
+                       where s.isActive == true && s.CariGroupId==2
                        select s).ToList();
             foreach (tblCariler k in lst)
             {
@@ -55,14 +57,14 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Doktorlar
         private void Liste_DoubleClick_1(object sender, EventArgs e)
         {
             secimId = (int?)Liste.CurrentRow.Cells[0].Value ?? -1;
-            if (secimId > 0 && Application.OpenForms["frmDoktorGiris"] == null)//form açık değilse
+            if (secimId > 0 &&Secim&& Application.OpenForms["frmDoktorGiris"] == null)//form açık değilse
             {
-
-                frmDoktorGiris frm = new frmDoktorGiris();
-                frm.MdiParent = Form.ActiveForm;
-                frm.Show();
-                frm.Ac(secimId);
-                this.Close();
+                Home.Aktarma=secimId;
+                //frmDoktorGiris frm = new frmDoktorGiris();
+                //frm.MdiParent = Form.ActiveForm;
+                //frm.Show();
+                //frm.Ac(secimId);
+                Close();
             }
             else if (Application.OpenForms["frmDoktorGiris"] != null)
             {

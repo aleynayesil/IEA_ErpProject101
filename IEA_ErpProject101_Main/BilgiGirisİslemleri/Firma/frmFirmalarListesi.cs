@@ -16,6 +16,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Firma
         private ErpProjectWMPEntities erp = new ErpProjectWMPEntities();
 
         public int secimId = -1;
+        public bool Secim = false;
         public frmFirmalarListesi()
         {
             InitializeComponent();
@@ -61,14 +62,14 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Firma
         private void Liste_DoubleClick(object sender, EventArgs e)
         {
             secimId = (int?)Liste.CurrentRow.Cells[0].Value ?? -1;
-            if (secimId > 0 && Application.OpenForms["frmFirmaGiris"] == null)//form açık değilse
+            if (secimId > 0&&Secim && Application.OpenForms["frmFirmaGiris"] == null)//form açık değilse
             {
-
-                frmFirmaGiris frm = new frmFirmaGiris();
-                frm.MdiParent = Form.ActiveForm;
-                frm.Show();
-                frm.Ac(secimId);
-                this.Close();
+                Home.Aktarma = secimId;
+                //frmFirmaGiris frm = new frmFirmaGiris();
+                //frm.MdiParent = Form.ActiveForm;
+                //frm.Show();
+                //frm.Ac(secimId);
+                Close();
             }
             else if (Application.OpenForms["frmFirmaGiris"] != null)
             {
