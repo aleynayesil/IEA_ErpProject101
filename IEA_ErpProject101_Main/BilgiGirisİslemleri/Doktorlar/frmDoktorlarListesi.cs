@@ -1,4 +1,5 @@
 ﻿using IEA_ErpProject101_Main.Entity;
+using IEA_ErpProject101_Main.Fonksiyonlar;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,9 +12,9 @@ using System.Windows.Forms;
 
 namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Doktorlar
 {
-    public partial class frmDoktorlarListesi : Form
+    public partial class frmDoktorlarListesi : Ortaklar
     {
-        private ErpProjectWMPEntities erp = new ErpProjectWMPEntities();
+       // private ErpProjectWMPEntities db = new ErpProjectWMPEntities();
 
         public int secimId = -1;
 
@@ -32,7 +33,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Doktorlar
         {
             Liste.Rows.Clear();
             int i = 0, sira = 1;
-            var lst = (from s in erp.tblCariler
+            var lst = (from s in db.tblCariler
                        where s.isActive == true && s.CariGroupId==2
                        select s).ToList();
             foreach (tblCariler k in lst)

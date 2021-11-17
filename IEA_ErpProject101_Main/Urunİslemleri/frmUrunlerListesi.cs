@@ -12,11 +12,11 @@ using System.Windows.Forms;
 
 namespace IEA_ErpProject101_Main.Urunİslemleri
 {
-    public partial class frmUrunlerListesi : Form
+    public partial class frmUrunlerListesi : Ortaklar
     {
 
-        private ErpProjectWMPEntities erp = new ErpProjectWMPEntities();
-        Numaralar n = new Numaralar();
+        //private ErpProjectWMPEntities db = new ErpProjectWMPEntities();
+        //Numaralar n = new Numaralar();
 
         private int secimId = -1;
         public frmUrunlerListesi()
@@ -34,7 +34,7 @@ namespace IEA_ErpProject101_Main.Urunİslemleri
         {
             Liste.Rows.Clear();
             int i = 0, sira = 1;
-            var lst = (from s in erp.tblUrunler
+            var lst = (from s in db.tblUrunler
                        where s.isActive == true
                        select s).ToList();
             foreach (var k in lst)

@@ -17,11 +17,11 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Personeller
 {
 
   
-    public partial class frmPersonelGiris : Form
+    public partial class frmPersonelGiris : Ortaklar
     {
-        private readonly ErpProjectWMPEntities erp = new ErpProjectWMPEntities();
+        //private readonly ErpProjectWMPEntities db = new ErpProjectWMPEntities();
 
-        private Numaralar n = new Numaralar();
+        //private Numaralar n = new Numaralar();
 
         public int secimId = -1;
         public frmPersonelGiris()
@@ -38,7 +38,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Personeller
         {
             Liste.Rows.Clear();
             int i = 0, sira = 1;
-            var lst = (from s in erp.tblPersonelDetay
+            var lst = (from s in db.tblPersonelDetay
                        where s.tblCariler.isActive == true && s.tblCariler.CariGroupId == 6
                        select s).ToList();
             foreach (var k in lst)
@@ -65,8 +65,8 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Personeller
             txtPUnvan.DataSource = Enum.GetValues(typeof(enumPersonelUnvan));
 
 
-            var lst = erp.tblDepartmanlar.Where(x => x.GrupId == 6).ToList();
-            var lst1 = erp.tblSehirler.ToList();
+            var lst = db.tblDepartmanlar.Where(x => x.GrupId == 6).ToList();
+            var lst1 = db.tblSehirler.ToList();
 
 
             txtDepartman1.DataSource = lst;
@@ -116,15 +116,15 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Personeller
                     dr.SaveDate = DateTime.Now;
                     dr.CariNo = pkodu;
 
-                    erp.tblCariler.Add(dr);
-                    erp.SaveChanges();
+                    db.tblCariler.Add(dr);
+                    db.SaveChanges();
 
                     tblPersonelDetay pdet = new tblPersonelDetay();
-                    pdet.CariId = erp.tblCariler.First(x => x.CariAdi == txtPersonelAdi.Text).Id;
+                    pdet.CariId = db.tblCariler.First(x => x.CariAdi == txtPersonelAdi.Text).Id;
                     pdet.İsBasiTarih = dtİsBası.Value;
                     //pdet.İsSonuTarih = dtİsSonu.Value;
-                    erp.tblPersonelDetay.Add(pdet);
-                    erp.SaveChanges();
+                    db.tblPersonelDetay.Add(pdet);
+                    db.SaveChanges();
                     MessageBox.Show("Kayıt Başarılı.");
                     Temizle();
                     listele();
@@ -173,7 +173,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Personeller
                 {
                     dr.İsSonuTarih = dtİsSonu.Value;
                 }
-                erp.SaveChanges();
+                db.SaveChanges();
 
                 MessageBox.Show("Güncelleme Başarılı.");
                 Temizle();
@@ -203,9 +203,9 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Personeller
         {
             if (secimId > 0)
             {
-                tblCariler dr = erp.tblCariler.Find(secimId);
+                tblCariler dr = db.tblCariler.Find(secimId);
                 dr.isActive = false;
-                erp.SaveChanges();
+                db.SaveChanges();
                 MessageBox.Show("Silme Başarılı");
                 Temizle();
                 listele();
@@ -240,7 +240,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Personeller
         public void Ac(int id)
         {
             secimId = id;//dış formdan veri gelirse secimId hatası almamak için bu işlem yapılır.
-            Home.tblPersonelDetayId = erp.tblPersonelDetay.Find(id);
+            Home.tblPersonelDetayId = db.tblPersonelDetay.Find(id);
             try
             {
                 txtDurum.Visible = true;

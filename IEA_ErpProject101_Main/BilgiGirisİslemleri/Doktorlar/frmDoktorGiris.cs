@@ -15,12 +15,12 @@ using System.Windows.Forms;
 
 namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Doktorlar
 {
-    public partial class frmDoktorGiris : Form
+    public partial class frmDoktorGiris : Ortaklar
 
     {
-        private readonly ErpProjectWMPEntities erp = new ErpProjectWMPEntities();
+        //private readonly ErpProjectWMPEntities db = new ErpProjectWMPEntities();
 
-        private Numaralar n = new Numaralar();
+        //private Numaralar n = new Numaralar();
 
         public int secimId = -1;
 
@@ -39,7 +39,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Doktorlar
         {
             Liste.Rows.Clear();
             int i = 0, sira = 1;
-            var lst = (from s in erp.tblCariler
+            var lst = (from s in db.tblCariler
                        where s.isActive == true && s.CariGroupId==2
                        select new
                        {
@@ -72,8 +72,8 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Doktorlar
             txtDUnvan.DataSource = Enum.GetValues(typeof(DoktorUnvan));
 
 
-                var lst = erp.tblDepartmanlar.Where(x => x.GrupId == 2).ToList();
-                var lst1 = erp.tblSehirler.ToList();
+                var lst = db.tblDepartmanlar.Where(x => x.GrupId == 2).ToList();
+                var lst1 = db.tblSehirler.ToList();
 
 
                 txtDepartman1.DataSource = lst;
@@ -133,8 +133,8 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Doktorlar
                     dr.CariNo = dkodu;
                     dr.CariGroupId = 2;
 
-                    erp.tblCariler.Add(dr);
-                    erp.SaveChanges();
+                    db.tblCariler.Add(dr);
+                    db.SaveChanges();
 
                     MessageBox.Show("Kayıt Başarılı.");
                     Temizle();
@@ -181,7 +181,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Doktorlar
                 dr.UpdateUserId = 1;
                 dr.UpdateDate = DateTime.Now;
                 dr.CariGroupId = 2;
-                erp.SaveChanges();
+                db.SaveChanges();
 
                 MessageBox.Show("Güncelleme Başarılı.");
                 Temizle();
@@ -199,7 +199,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Doktorlar
             {
                 tblCariler dr =Home.tblCarileId;
                 dr.isActive = false;
-                erp.SaveChanges();
+                db.SaveChanges();
                 MessageBox.Show("Silme Başarılı");
                 Temizle();
                 listele();
@@ -231,7 +231,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Doktorlar
         public void Ac(int id)
         {
             secimId = id;//dış formdan veri gelirse secimId hatası almamak için bu işlem yapılır.
-            Home.tblCarileId = erp.tblCariler.Find(id);
+            Home.tblCarileId = db.tblCariler.Find(id);
             try
             {
                 tblCariler dr = Home.tblCarileId;

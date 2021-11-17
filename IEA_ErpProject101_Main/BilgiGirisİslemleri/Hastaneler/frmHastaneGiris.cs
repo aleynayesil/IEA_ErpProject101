@@ -14,11 +14,11 @@ using System.Windows.Forms;
 
 namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Hastaneler
 {
-    public partial class frmHastaneGiris : Form
+    public partial class frmHastaneGiris : Ortaklar
     {
-        private readonly ErpProjectWMPEntities erp = new ErpProjectWMPEntities();
+        //private readonly ErpProjectWMPEntities db = new ErpProjectWMPEntities();
 
-        private Numaralar n = new Numaralar();
+        //private Numaralar n = new Numaralar();
 
         public int secimId = -1;
         public frmHastaneGiris()
@@ -37,7 +37,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Hastaneler
         {
             Liste.Rows.Clear();
             int i = 0,sira= 1;
-            var lst = (from s in erp.tblCariler
+            var lst = (from s in db.tblCariler
                        where s.isActive == true
                        where s.CariGroupId==1
                        select new
@@ -68,10 +68,10 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Hastaneler
 
         private void comboDoldur()
         {
-            var lst = erp.tblDepartmanlar.Where(x => x.GrupId == 1).ToList();
-            var lst1 = erp.tblDepartmanlar.Where(x => x.GrupId == 1).ToList();
-            var lst2 = erp.tblDepartmanlar.Where(x => x.GrupId == 1).ToList();
-            var lst3 = erp.tblSehirler.ToList();
+            var lst = db.tblDepartmanlar.Where(x => x.GrupId == 1).ToList();
+            var lst1 = db.tblDepartmanlar.Where(x => x.GrupId == 1).ToList();
+            var lst2 = db.tblDepartmanlar.Where(x => x.GrupId == 1).ToList();
+            var lst3 = db.tblSehirler.ToList();
 
 
             txtDepartman1.DataSource = lst;
@@ -150,8 +150,8 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Hastaneler
                     hst.SaveDate = DateTime.Now;
                     hst.CariNo = hkodu;
 
-                    erp.tblCariler.Add(hst);
-                    erp.SaveChanges();
+                    db.tblCariler.Add(hst);
+                    db.SaveChanges();
 
                     MessageBox.Show("Kayıt Başarılı.");
                     Temizle();
@@ -212,7 +212,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Hastaneler
                 hst.UpdateUserId = 1;
                 hst.UpdateDate = DateTime.Now;
 
-                erp.SaveChanges();
+                db.SaveChanges();
 
                 MessageBox.Show("Güncelleme Başarılı.");
                 Temizle();
@@ -230,7 +230,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Hastaneler
             {
                 tblCariler hst = Home.tblCarileId;
                 hst.isActive = false;
-                erp.SaveChanges();
+                db.SaveChanges();
                 MessageBox.Show("Silme Başarılı");
                 Temizle();
                 listele();
@@ -264,7 +264,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Hastaneler
         public void Ac(int id)
         {
             secimId = id;//dış formdan veri gelirse secimId hatası almamak için bu işlem yapılır.
-            Home.tblCarileId = erp.tblCariler.Find(id);
+            Home.tblCarileId = db.tblCariler.Find(id);
             try
             {
                 tblCariler hst = Home.tblCarileId;

@@ -14,10 +14,10 @@ using System.Windows.Forms;
 
 namespace IEA_ErpProject101_Main.Urunİslemleri
 {
-    public partial class frmUrunGiris : Form
+    public partial class frmUrunGiris : Ortaklar
     {
-        private ErpProjectWMPEntities erp = new ErpProjectWMPEntities();
-        Numaralar n = new Numaralar();
+        //private ErpProjectWMPEntities db = new ErpProjectWMPEntities();
+        //Numaralar n = new Numaralar();
 
         private int secimId = -1;
         public frmUrunGiris()
@@ -35,7 +35,7 @@ namespace IEA_ErpProject101_Main.Urunİslemleri
         {
             Liste.Rows.Clear();
             int i = 0, sira = 1;
-            var lst = (from s in erp.tblUrunler
+            var lst = (from s in db.tblUrunler
                        where s.isActive == true
                        select s).ToList();
             foreach (var k in lst)
@@ -58,7 +58,7 @@ namespace IEA_ErpProject101_Main.Urunİslemleri
 
         private void ComboDoldur()
         {
-            txtUrunTedarikciId.DataSource = (from s in erp.tblCariler
+            txtUrunTedarikciId.DataSource = (from s in db.tblCariler
                                              where s.CariGroupId==3
                                              where s.CariUnvan == "Distribütör"
                                              select s).ToList();
@@ -88,8 +88,8 @@ namespace IEA_ErpProject101_Main.Urunİslemleri
                 urn.SaveUserId = 1;
                 urn.isActive = true;
 
-                erp.tblUrunler.Add(urn);
-                erp.SaveChanges();
+                db.tblUrunler.Add(urn);
+                db.SaveChanges();
                 MessageBox.Show("Kayıt Başarılı");
 
                 Temizle();
@@ -119,7 +119,7 @@ namespace IEA_ErpProject101_Main.Urunİslemleri
         public void Ac(int id)
         {
             secimId = id;
-            urunler = erp.tblUrunler.Find(secimId);
+            urunler = db.tblUrunler.Find(secimId);
            
             try
             {
@@ -162,7 +162,7 @@ namespace IEA_ErpProject101_Main.Urunİslemleri
 
 
 
-                erp.SaveChanges();
+                db.SaveChanges();
                 MessageBox.Show("Güncelleme Başarılı");
 
                 Temizle();
@@ -198,7 +198,7 @@ namespace IEA_ErpProject101_Main.Urunİslemleri
             {
                 tblUrunler urn = urunler;
                 urn.isActive = false;
-                erp.SaveChanges();
+                db.SaveChanges();
                 MessageBox.Show("Silme Başarılı");
                 Temizle();
                 Listele();
