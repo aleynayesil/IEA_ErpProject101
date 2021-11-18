@@ -69,8 +69,9 @@ namespace IEA_ErpProject101_Main.Urunİslemleri
 
         private void YeniKayıt()
         {
-            if (secimId!=-1 || txtUrunKodu.Text=="")
+            if (secimId!=-1 || txtUrunKodu.Text=="" || txtKullanimAy.Text=="")
             {
+                MessageBox.Show("Ürün kodu veya kullanım süresi boş bırakılamaz ve kaydı yapılmış ürünler tekrar kaydedilemez");
                 return;
             }
             try
@@ -84,6 +85,7 @@ namespace IEA_ErpProject101_Main.Urunİslemleri
                 urn.Kutuİcerik = txtKutu.Text;
                 urn.UrunGenelNo =n.UrunGenelKodu();
                 urn.UrunAciklama = txtUrunAciklama.Text;
+                urn.KullanimSuresiAy =(int)txtKullanimAy.Value;
                 urn.SaveDate = DateTime.Now;
                 urn.SaveUserId = 1;
                 urn.isActive = true;
@@ -132,6 +134,7 @@ namespace IEA_ErpProject101_Main.Urunİslemleri
                 txtAlis.Text = urn.AlısFiyat.ToString();
                 txtSatis.Text = urn.SatisFiyat.ToString();
                 txtKutu.Text = urn.Kutuİcerik;
+                txtKullanimAy.Text= urn.KullanimSuresiAy.ToString();
             }
             catch (Exception e)
             {
@@ -157,6 +160,7 @@ namespace IEA_ErpProject101_Main.Urunİslemleri
                 urn.Kutuİcerik = txtKutu.Text;
                 urn.UrunGenelNo = txtKayitBul.Text;
                 urn.UrunAciklama = txtUrunAciklama.Text;
+                urn.KullanimSuresiAy = (int)txtKullanimAy.Value;
                 urn.UpdateDate = DateTime.Now;
                 urn.UpdateUserId = 1;
 

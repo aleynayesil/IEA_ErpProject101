@@ -108,6 +108,7 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
                     string barkod = Liste.Rows[i].Cells[2].Value.ToString() + "/" +
                                     Liste.Rows[i].Cells[3].Value.ToString();
 
+
                     #region StokDurumTablosunaKayıt
                     drm[i] = new tblStokDurum();
                     var srg = (from s in db.tblStokDurum
@@ -326,6 +327,18 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
                         }
                         i++;
                     }
+                }
+
+                if (e.ColumnIndex==7)
+                {
+                    string a = Liste.CurrentRow.Cells[2].Value.ToString();
+                    var lst = (from s in db.tblUrunler
+                               where s.UrunKodu == a
+                               select s).FirstOrDefault();
+
+                    int ayy = lst.KullanimSuresiAy.Value;
+                    DateTime ay =Convert.ToDateTime( Liste.CurrentRow.Cells[6].Value);
+                    Liste.CurrentRow.Cells[7].Value = ay.AddMonths(ayy).ToShortDateString();
                 }
             }
             catch (Exception ex)
