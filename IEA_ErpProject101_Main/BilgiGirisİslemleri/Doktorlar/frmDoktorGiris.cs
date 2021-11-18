@@ -275,9 +275,9 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Doktorlar
         private void btn_Click(object sender, EventArgs e)
         {
 
-            if (Application.OpenForms["frmHastanelerListesi"] is null)
+            if (Application.OpenForms["frmDoktorlarListesi"] is null)
             {
-                frmHastanelerListesi frm = new frmHastanelerListesi();
+                frmDoktorlarListesi frm = new frmDoktorlarListesi();
                 frm.MdiParent = Form.ActiveForm;
                 frm.Show();
             }

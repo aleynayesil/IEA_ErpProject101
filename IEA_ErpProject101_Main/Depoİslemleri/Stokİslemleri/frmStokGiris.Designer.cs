@@ -67,6 +67,7 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
             this.UTarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AlisFiyat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtToplam = new System.Windows.Forms.TextBox();
             this.pnlTop.SuspendLayout();
             this.pnlRight.SuspendLayout();
             this.pnlBottom.SuspendLayout();
@@ -261,6 +262,7 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
             // pnlBottom
             // 
             this.pnlBottom.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnlBottom.Controls.Add(this.txtToplam);
             this.pnlBottom.Controls.Add(this.txturnCombo);
             this.pnlBottom.Controls.Add(this.btnTemizle);
             this.pnlBottom.Controls.Add(this.btnSil);
@@ -367,7 +369,6 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
             this.Sira.HeaderText = "Sıra";
             this.Sira.Name = "Sira";
             this.Sira.Visible = false;
-            this.Sira.Width = 50;
             // 
             // barcode
             // 
@@ -375,7 +376,6 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
             this.barcode.HeaderText = "Barkod";
             this.barcode.Name = "barcode";
             this.barcode.Visible = false;
-            this.barcode.Width = 66;
             // 
             // Ukod
             // 
@@ -430,6 +430,13 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
             this.AlisFiyat.Name = "AlisFiyat";
             this.AlisFiyat.Width = 75;
             // 
+            // txtToplam
+            // 
+            this.txtToplam.Location = new System.Drawing.Point(460, 11);
+            this.txtToplam.Name = "txtToplam";
+            this.txtToplam.Size = new System.Drawing.Size(100, 20);
+            this.txtToplam.TabIndex = 5;
+            // 
             // frmStokGiris
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -447,6 +454,7 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
             this.pnlRight.ResumeLayout(false);
             this.pnlRight.PerformLayout();
             this.pnlBottom.ResumeLayout(false);
+            this.pnlBottom.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).EndInit();
             this.ResumeLayout(false);
 
@@ -489,5 +497,6 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
         private System.Windows.Forms.DataGridViewTextBoxColumn UTarihi;
         private System.Windows.Forms.DataGridViewTextBoxColumn SKT;
         private System.Windows.Forms.DataGridViewTextBoxColumn AlisFiyat;
+        private System.Windows.Forms.TextBox txtToplam;
     }
 }

@@ -54,13 +54,12 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Doktorlar
             Liste.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
-   
-        private void Liste_DoubleClick_1(object sender, EventArgs e)
+        private void Liste_DoubleClick(object sender, EventArgs e)
         {
             secimId = (int?)Liste.CurrentRow.Cells[0].Value ?? -1;
-            if (secimId > 0 &&Secim&& Application.OpenForms["frmDoktorGiris"] == null)//form açık değilse
+            if (secimId > 0 && Secim && Application.OpenForms["frmDoktorGiris"] == null)//form açık değilse
             {
-                Home.Aktarma=secimId;
+                Home.Aktarma = secimId;
                 //frmDoktorGiris frm = new frmDoktorGiris();
                 //frm.MdiParent = Form.ActiveForm;
                 //frm.Show();

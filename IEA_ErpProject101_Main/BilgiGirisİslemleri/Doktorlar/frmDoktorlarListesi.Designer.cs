@@ -142,7 +142,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisİslemleri.Doktorlar
             this.Liste.Name = "Liste";
             this.Liste.Size = new System.Drawing.Size(1013, 384);
             this.Liste.TabIndex = 10;
-            this.Liste.DoubleClick += new System.EventHandler(this.Liste_DoubleClick_1);
+            this.Liste.DoubleClick += new System.EventHandler(this.Liste_DoubleClick);
             // 
             // Id
             // 

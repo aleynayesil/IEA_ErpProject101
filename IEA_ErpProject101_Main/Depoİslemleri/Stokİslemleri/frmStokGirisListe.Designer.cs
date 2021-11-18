@@ -30,19 +30,18 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Liste = new System.Windows.Forms.DataGridView();
-            this.Sira = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ukod = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Lot_SeriNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GAdet = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Not = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UTarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AlisFiyat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GenelNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CariAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FaturaNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FaturaT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GirisTipi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pnlTop = new System.Windows.Forms.Panel();
+            this.btnKapat = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).BeginInit();
+            this.pnlTop.SuspendLayout();
             this.SuspendLayout();
             // 
             // Liste
@@ -58,89 +57,93 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
             this.Liste.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.Liste.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Liste.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Sira,
-            this.barcode,
-            this.Ukod,
-            this.Lot_SeriNo,
-            this.GAdet,
-            this.Not,
-            this.UTarihi,
-            this.SKT,
-            this.AlisFiyat});
+            this.Id,
+            this.GenelNo,
+            this.CariAdi,
+            this.FaturaNo,
+            this.FaturaT,
+            this.GirisTipi});
             this.Liste.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Liste.Location = new System.Drawing.Point(0, 0);
+            this.Liste.Location = new System.Drawing.Point(0, 41);
             this.Liste.MultiSelect = false;
             this.Liste.Name = "Liste";
             this.Liste.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.Liste.Size = new System.Drawing.Size(800, 450);
+            this.Liste.Size = new System.Drawing.Size(800, 409);
             this.Liste.TabIndex = 5;
+            this.Liste.DoubleClick += new System.EventHandler(this.Liste_DoubleClick);
             // 
-            // Sira
+            // Id
             // 
-            this.Sira.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Sira.HeaderText = "Sıra";
-            this.Sira.Name = "Sira";
-            this.Sira.Visible = false;
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.Visible = false;
             // 
-            // barcode
+            // GenelNo
             // 
-            this.barcode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.barcode.HeaderText = "Barkod";
-            this.barcode.Name = "barcode";
-            this.barcode.Visible = false;
+            this.GenelNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.GenelNo.HeaderText = "Genel No";
+            this.GenelNo.Name = "GenelNo";
+            this.GenelNo.Width = 77;
             // 
-            // Ukod
+            // CariAdi
             // 
-            this.Ukod.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Ukod.HeaderText = "Urun Kodu";
-            this.Ukod.Name = "Ukod";
+            this.CariAdi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CariAdi.HeaderText = "Cari Adi";
+            this.CariAdi.Name = "CariAdi";
             // 
-            // Lot_SeriNo
+            // FaturaNo
             // 
-            this.Lot_SeriNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Lot_SeriNo.HeaderText = "Lot / Seri No";
-            this.Lot_SeriNo.Name = "Lot_SeriNo";
-            this.Lot_SeriNo.Width = 93;
+            this.FaturaNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.FaturaNo.HeaderText = "Fatura No";
+            this.FaturaNo.Name = "FaturaNo";
+            this.FaturaNo.Width = 79;
             // 
-            // GAdet
+            // FaturaT
             // 
-            this.GAdet.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.GAdet.HeaderText = "Giriş Adet";
-            this.GAdet.Name = "GAdet";
-            this.GAdet.Width = 77;
+            this.FaturaT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.FaturaT.HeaderText = "Fatura Tarih";
+            this.FaturaT.Name = "FaturaT";
+            this.FaturaT.Width = 89;
             // 
-            // Not
+            // GirisTipi
             // 
-            this.Not.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Not.HeaderText = "Not";
-            this.Not.Name = "Not";
+            this.GirisTipi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.GirisTipi.HeaderText = "Giriş Tipi";
+            this.GirisTipi.Name = "GirisTipi";
+            this.GirisTipi.Width = 72;
             // 
-            // UTarihi
+            // pnlTop
             // 
-            this.UTarihi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = "-";
-            this.UTarihi.DefaultCellStyle = dataGridViewCellStyle2;
-            this.UTarihi.HeaderText = "ÜT";
-            this.UTarihi.Name = "UTarihi";
-            this.UTarihi.Width = 47;
+            this.pnlTop.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnlTop.Controls.Add(this.btnKapat);
+            this.pnlTop.Controls.Add(this.label1);
+            this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlTop.Location = new System.Drawing.Point(0, 0);
+            this.pnlTop.Name = "pnlTop";
+            this.pnlTop.Size = new System.Drawing.Size(800, 41);
+            this.pnlTop.TabIndex = 6;
             // 
-            // SKT
+            // btnKapat
             // 
-            this.SKT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle3.Format = "d";
-            dataGridViewCellStyle3.NullValue = "-";
-            this.SKT.DefaultCellStyle = dataGridViewCellStyle3;
-            this.SKT.HeaderText = "SKT";
-            this.SKT.Name = "SKT";
-            this.SKT.Width = 53;
+            this.btnKapat.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnKapat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnKapat.Location = new System.Drawing.Point(628, 0);
+            this.btnKapat.Name = "btnKapat";
+            this.btnKapat.Size = new System.Drawing.Size(172, 41);
+            this.btnKapat.TabIndex = 5;
+            this.btnKapat.Text = "Form Çıkış";
+            this.btnKapat.UseVisualStyleBackColor = true;
             // 
-            // AlisFiyat
+            // label1
             // 
-            this.AlisFiyat.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.AlisFiyat.HeaderText = "Alış Fiyatı";
-            this.AlisFiyat.Name = "AlisFiyat";
-            this.AlisFiyat.Width = 75;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(172, 23);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Stok Giriş Kartı";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // frmStokGirisListe
             // 
@@ -148,10 +151,12 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.Liste);
+            this.Controls.Add(this.pnlTop);
             this.Name = "frmStokGirisListe";
-            this.Text = "frmStokListes";
+            this.Text = "frmStokGirisListe";
             this.Load += new System.EventHandler(this.frmStokGirisListe_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).EndInit();
+            this.pnlTop.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -159,14 +164,14 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
         #endregion
 
         public System.Windows.Forms.DataGridView Liste;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Sira;
-        private System.Windows.Forms.DataGridViewTextBoxColumn barcode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ukod;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Lot_SeriNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GAdet;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Not;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UTarihi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SKT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AlisFiyat;
+        private System.Windows.Forms.Panel pnlTop;
+        private System.Windows.Forms.Button btnKapat;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GenelNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CariAdi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FaturaNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FaturaT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GirisTipi;
     }
 }

@@ -14,6 +14,8 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
 {
     public partial class frmStokGirisListe : Ortaklar
     {
+
+        public int secimId = -1;
         public bool Secim = false;
         public frmStokGirisListe()
         {
@@ -28,26 +30,37 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
         private void Listele()
         {
             Liste.Rows.Clear();
-            int i = 0, sira = 1;
-            var lst = (from s in db.tblCariler
-                       where s.isActive == true && s.CariGroupId == 2
+            int i = 0;
+            var lst = (from s in db.tblStokGirisUst 
+                       where s.isActive==true
                        select s).ToList();
-            foreach (tblCariler k in lst)
+            foreach (tblStokGirisUst k in lst)
             {
                 Liste.Rows.Add();
                 Liste.Rows[i].Cells[0].Value = k.Id;
-                Liste.Rows[i].Cells[1].Value = sira;
-                Liste.Rows[i].Cells[2].Value = k.CariNo;
-                Liste.Rows[i].Cells[3].Value = k.CariAdi;
-                Liste.Rows[i].Cells[4].Value = k.CariTel;
-                Liste.Rows[i].Cells[5].Value = k.CariMail;
-                Liste.Rows[i].Cells[6].Value = k.YetkiliCep1;
+                Liste.Rows[i].Cells[1].Value = k.GenelNo;
+                Liste.Rows[i].Cells[2].Value = k.tblCariler.CariAdi;
+                Liste.Rows[i].Cells[3].Value = k.FaturaNo;
+                Liste.Rows[i].Cells[4].Value = k.FaturaTarih;
+                Liste.Rows[i].Cells[5].Value = k.GirisTipi;
                 i++;
-                sira++;
+              
             }
             Liste.AllowUserToAddRows = false;
             Liste.ReadOnly = true;
             Liste.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
+
+        private void Liste_DoubleClick(object sender, EventArgs e)
+        {
+            if (Liste.CurrentRow != null) secimId = (int?)Liste.CurrentRow.Cells[0].Value ?? -1;
+
+            if (secimId>0 && Secim)
+            {
+                Home.Aktarma = secimId;
+                Close();
+            }
+        }
+
     }
 }

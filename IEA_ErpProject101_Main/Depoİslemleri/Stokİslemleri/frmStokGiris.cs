@@ -96,7 +96,7 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
                     SaveUserId = 1
                 };
                 db.tblStokGirisUst.Add(ust);
-                db.SaveChanges(); 
+               // db.SaveChanges(); 
                 #endregion
 
                 tblStokDurum[] drm = new tblStokDurum[Liste.RowCount];
@@ -130,14 +130,14 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
                         drm[i].UT = DateTime.Parse(Liste.Rows[i].Cells[6].Value.ToString());
                         drm[i].SKT = DateTime.Parse(Liste.Rows[i].Cells[7].Value.ToString());
                         db.tblStokDurum.Add(drm[i]);
-                        db.SaveChanges();
+                       // db.SaveChanges();
                     }
                     else
                     {
                         tblStokDurum sdurum = db.tblStokDurum.First(x => x.Barkod == barkod);
                         sdurum.StokAdet += Convert.ToInt32(Liste.Rows[i].Cells[4].Value);//objectleri parse edilmez ama convert edilir
                         sdurum.RafAdet += Convert.ToInt32(Liste.Rows[i].Cells[4].Value);
-                        db.SaveChanges();
+                       // db.SaveChanges();
                     }
                     #endregion
 
@@ -240,13 +240,20 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
             }
         }
 
-        private void Ac(int id)
+        public void Ac(int id)
         {
             tblCariler bulId = db.tblCariler.Find(id);
 
-            if (txtCariGrup.Text == "Personel")
+            if (txtCariGrup.Text != "Personel")
+            {
+                bulId = db.tblCariler.Find(id);
+            }else if(txtCariGrup.Text == "Personel")
             {
                 bulId = db.tblPersonelDetay.First(x => x.Id == id).tblCariler;
+            }
+            else
+            {
+                bulId = null;
             }
             try
             {
@@ -261,11 +268,51 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
 
         private void btnUrunGiris_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            int id = f.StokGirisListe(true);
+            if (id>0)
+            {
+                FormAc(id);
+            }
+            Home.Aktarma = -1;
         }
 
+        private void FormAc(int id)
+        {
+
+            int i = 0, toplam = 0;
+            var kayitBul = db.tblStokGirisUst.Find(id);
+            tblStokGirisUst ust = kayitBul;
+            txtGenelNo.Text = ust.GenelNo.ToString();
+            txtCariGrup.Text = ust.tblCariGruplari.GrupAdi;
+            txtAciklama.Text = ust.Aciklama;
+            txtFaturaNo.Text = ust.FaturaNo;
+            txtCariAdi.Text = ust.tblCariler.CariAdi;
+            if (ust.FaturaTarih != null) txtGirisTarih.Value = (DateTime)ust.FaturaTarih;
+            if (ust.GirisTipi != null) txtGirisTipi.SelectedIndex = ust.GirisTipi.Value;
+
+            var alt = db.tblStokGirisAlt.Where(x => x.GenelNo.ToString() == txtGenelNo.Text);
+            Liste.Rows.Clear();
+            foreach (var k in alt)
+            {
+                Liste.Rows.Add(); 
+                Liste.Rows[i].Cells[0].Value = k.SiraNo;
+                Liste.Rows[i].Cells[1].Value = k.Barkod;
+                Liste.Rows[i].Cells[2].Value = k.UrunKodu;
+                Liste.Rows[i].Cells[3].Value = k.LotSeriNo;
+                Liste.Rows[i].Cells[4].Value = k.Adet;
+                Liste.Rows[i].Cells[5].Value = k.Not;
+                Liste.Rows[i].Cells[6].Value = k.UT;
+                Liste.Rows[i].Cells[7].Value = k.SKT;
+                Liste.Rows[i].Cells[8].Value = k.AlisFiyat;
+                toplam += (int)k.Adet;
+                i++;
+            }
+            txtToplam.Text = toplam.ToString();
+            Liste.AllowUserToAddRows = false;
+            Liste.ReadOnly = true;
 
 
+        }
 
         #endregion
 
@@ -329,16 +376,19 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
                     }
                 }
 
-                if (e.ColumnIndex==7)
+                if (e.ColumnIndex==6)
                 {
-                    string a = Liste.CurrentRow.Cells[2].Value.ToString();
-                    var lst = (from s in db.tblUrunler
-                               where s.UrunKodu == a
-                               select s).FirstOrDefault();
+                    if (Liste.CurrentRow.Cells[6].Value != null || Liste.CurrentRow.Cells[6].Value != "")
+                    {
+                        string a = Liste.CurrentRow.Cells[2].Value.ToString();
+                        var lst = (from s in db.tblUrunler
+                                   where s.UrunKodu == a
+                                   select s).FirstOrDefault();
 
-                    int ayy = lst.KullanimSuresiAy.Value;
-                    DateTime ay =Convert.ToDateTime( Liste.CurrentRow.Cells[6].Value);
-                    Liste.CurrentRow.Cells[7].Value = ay.AddMonths(ayy).ToShortDateString();
+                        int ayy = lst.KullanimSuresiAy.Value;
+                        DateTime ay = Convert.ToDateTime(Liste.CurrentRow.Cells[6].Value);
+                        Liste.CurrentRow.Cells[7].Value = ay.AddMonths(ayy).ToShortDateString(); 
+                    }
                 }
             }
             catch (Exception ex)
