@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3c5d5be9ac5e40fab7e232109198ff01" Name="Diagram1" ZoomLevel="56">
+      <Diagram DiagramId="3c5d5be9ac5e40fab7e232109198ff01" Name="Diagram1" ZoomLevel="52">
         <EntityTypeShape EntityType="ErpProjectWMPModel.tblCariler" Width="1.5" PointX="2.875" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ErpProjectWMPModel.tblCariGruplari" Width="1.5" PointX="5.875" PointY="1.875" />
         <AssociationConnector Association="ErpProjectWMPModel.FK_tblCariler_tblCariGruplari" />
@@ -21,6 +21,7 @@
         <AssociationConnector Association="ErpProjectWMPModel.FK_tblStokGirisUst_tblCariler" />
         <EntityTypeShape EntityType="ErpProjectWMPModel.tblUrunler" Width="1.5" PointX="12.375" PointY="0.5" />
         <AssociationConnector Association="ErpProjectWMPModel.FK_tblUrunler_tblCariler" />
+        <EntityTypeShape EntityType="ErpProjectWMPModel.vwStokGiris" Width="1.5" PointX="15.25" PointY="1.125" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

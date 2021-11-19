@@ -32,6 +32,9 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlTop = new System.Windows.Forms.Panel();
             this.btnKapat = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,6 +54,7 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlBottom = new System.Windows.Forms.Panel();
+            this.txtToplam = new System.Windows.Forms.TextBox();
             this.txturnCombo = new System.Windows.Forms.ComboBox();
             this.btnTemizle = new System.Windows.Forms.Button();
             this.btnSil = new System.Windows.Forms.Button();
@@ -67,11 +71,21 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
             this.UTarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AlisFiyat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtToplam = new System.Windows.Forms.TextBox();
+            this.Liste2 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlTop.SuspendLayout();
             this.pnlRight.SuspendLayout();
             this.pnlBottom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Liste2)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTop
@@ -274,6 +288,13 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
             this.pnlBottom.Size = new System.Drawing.Size(986, 43);
             this.pnlBottom.TabIndex = 2;
             // 
+            // txtToplam
+            // 
+            this.txtToplam.Location = new System.Drawing.Point(460, 11);
+            this.txtToplam.Name = "txtToplam";
+            this.txtToplam.Size = new System.Drawing.Size(100, 20);
+            this.txtToplam.TabIndex = 5;
+            // 
             // txturnCombo
             // 
             this.txturnCombo.FormattingEnabled = true;
@@ -308,6 +329,7 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
             this.btnGuncelle.TabIndex = 1;
             this.btnGuncelle.Text = "Güncelle";
             this.btnGuncelle.UseVisualStyleBackColor = true;
+            this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
             // 
             // btnKayıt
             // 
@@ -430,18 +452,108 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
             this.AlisFiyat.Name = "AlisFiyat";
             this.AlisFiyat.Width = 75;
             // 
-            // txtToplam
+            // Liste2
             // 
-            this.txtToplam.Location = new System.Drawing.Point(460, 11);
-            this.txtToplam.Name = "txtToplam";
-            this.txtToplam.Size = new System.Drawing.Size(100, 20);
-            this.txtToplam.TabIndex = 5;
+            this.Liste2.AllowDrop = true;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Liste2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.Liste2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Liste2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9});
+            this.Liste2.Location = new System.Drawing.Point(8, 208);
+            this.Liste2.MultiSelect = false;
+            this.Liste2.Name = "Liste2";
+            this.Liste2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.Liste2.Size = new System.Drawing.Size(780, 114);
+            this.Liste2.TabIndex = 5;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Sıra";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Barkod";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn3.HeaderText = "Urun Kodu";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn4.HeaderText = "Lot / Seri No";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 93;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn5.HeaderText = "Giriş Adet";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 77;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn6.HeaderText = "Not";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle5.Format = "d";
+            dataGridViewCellStyle5.NullValue = "-";
+            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridViewTextBoxColumn7.HeaderText = "ÜT";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.Width = 47;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle6.Format = "d";
+            dataGridViewCellStyle6.NullValue = "-";
+            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridViewTextBoxColumn8.HeaderText = "SKT";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.Width = 53;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn9.HeaderText = "Alış Fiyatı";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.Width = 75;
             // 
             // frmStokGiris
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(986, 398);
+            this.Controls.Add(this.Liste2);
             this.Controls.Add(this.Liste);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.pnlRight);
@@ -456,6 +568,7 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
             this.pnlBottom.ResumeLayout(false);
             this.pnlBottom.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Liste2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -498,5 +611,15 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
         private System.Windows.Forms.DataGridViewTextBoxColumn SKT;
         private System.Windows.Forms.DataGridViewTextBoxColumn AlisFiyat;
         private System.Windows.Forms.TextBox txtToplam;
+        public System.Windows.Forms.DataGridView Liste2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
     }
 }

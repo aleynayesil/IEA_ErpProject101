@@ -15,6 +15,9 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
 {
     public partial class frmStokGiris : Ortaklar
     {
+
+        private int secimGenelNo = -1;
+        private int secimId = -1;
         //private ErpProjectWMPEntities db = new ErpProjectWMPEntities();
         //private Formlar f = new Formlar();
         //private Numaralar n = new Numaralar();
@@ -171,6 +174,45 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
             }
         }
 
+        //private tblStokGirisUst StokGirisUst;
+
+    
+        private void Guncelle()
+        {
+            try
+            {
+                tblStokGirisUst ust = db.tblStokGirisUst.First(x=>x.GenelNo==secimGenelNo);
+                ust.GenelNo = int.Parse(txtGenelNo.Text);
+                ust.CariGrupId =(int) txtCariGrup.SelectedValue;
+                ust.CariAdiId =db.tblCariler.First(x=>x.CariAdi==txtCariAdi.Text).Id;
+                ust.GirisTipi =(int) txtGirisTipi.SelectedValue-1;
+                ust.FaturaNo = txtFaturaNo.Text;
+                ust.FaturaTarih =txtGirisTarih.Value;
+                ust.Aciklama = txtAciklama.Text;
+                ust.isActive = true;
+                ust.UpdateDate = DateTime.Now;
+                ust.UpdateUserId = 1;
+                
+
+               //var Origin = (from s in db.tblStokGirisAlt.Where(s => s.GenelNo == Convert.ToInt32(txtGenelNo.Text)) select s).ToList();
+                db.SaveChanges();
+                for (int i = 0; i < Liste2.RowCount; i++)
+                {
+                    string bar = Liste2.Rows[i].Cells[1].Value.ToString();
+                    tblStokDurum sd = db.tblStokDurum.First(s => s.Barkod == bar);
+                    sd.StokAdet -= Convert.ToInt32(Liste2.Rows[i].Cells[4].Value.ToString());
+                    sd.RafAdet -= Convert.ToInt32(Liste2.Rows[i].Cells[4].Value.ToString());
+                    db.SaveChanges();
+                }
+                // tblStokDurum[] drm = 
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                MessageBox.Show("güncelleme gerçekleşmedi!!!!");
+            }
+        }
+
         #region Butonlar
 
         protected override void OnLoad(EventArgs e)
@@ -281,17 +323,25 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
 
             int i = 0;// toplam = 0;
             var kayitBul = db.tblStokGirisUst.Find(id);
+            //var kayitBul1 = db.vwStokGiris.First(x=>x.Id==id);//primarykey olmayan kayıdı find ile çekemeyiz.
+            //tblStokGirisUst ust = kayitBul;
+            secimGenelNo = kayitBul.GenelNo.Value;
+            secimId = kayitBul.Id;
             tblStokGirisUst ust = kayitBul;
             txtGenelNo.Text = ust.GenelNo.ToString();
-            txtCariGrup.Text = ust.tblCariGruplari.GrupAdi;
+            txtCariGrup.Text = ust.tblCariGruplari.GrupAdi;// ust.GrupAdi;
             txtAciklama.Text = ust.Aciklama;
             txtFaturaNo.Text = ust.FaturaNo;
-            txtCariAdi.Text = ust.tblCariler.CariAdi;
+            txtCariAdi.Text = ust.tblCariler.CariAdi;//ust.CariAdi;
             if (ust.FaturaTarih != null) txtGirisTarih.Value = (DateTime)ust.FaturaTarih;
             if (ust.GirisTipi != null) txtGirisTipi.SelectedIndex = ust.GirisTipi.Value;
 
             var alt = db.tblStokGirisAlt.Where(x => x.GenelNo.ToString() == txtGenelNo.Text);
+           //var alt1 = db.vwStokGiris.Where(x => x.GenelNo.ToString() == txtGenelNo.Text).ToList();
+
+            var Origin = alt;
             Liste.Rows.Clear();
+            Liste2.Rows.Clear();
             foreach (var k in alt)
             {
                 Liste.Rows.Add(); 
@@ -304,12 +354,26 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
                 Liste.Rows[i].Cells[6].Value = k.UT;
                 Liste.Rows[i].Cells[7].Value = k.SKT;
                 Liste.Rows[i].Cells[8].Value = k.AlisFiyat;
-                //toplam += (int)k.Adet;
+
+                Liste2.Rows.Add();
+                Liste2.Rows[i].Cells[0].Value = k.SiraNo;
+                Liste2.Rows[i].Cells[1].Value = k.Barkod;
+                Liste2.Rows[i].Cells[2].Value = k.UrunKodu;
+                Liste2.Rows[i].Cells[3].Value = k.LotSeriNo;
+                Liste2.Rows[i].Cells[4].Value = k.Adet;
+                Liste2.Rows[i].Cells[5].Value = k.Not;
+                Liste2.Rows[i].Cells[6].Value = k.UT;
+                Liste2.Rows[i].Cells[7].Value = k.SKT;
+                Liste2.Rows[i].Cells[8].Value = k.AlisFiyat;
+                //top2lam += (int)k.Adet;
                 i++;
             }
            // txtToplam.Text = toplam.ToString();
-            Liste.AllowUserToAddRows = false;
-            Liste.ReadOnly = true;
+            Liste.AllowUserToAddRows = true;
+            Liste2.AllowUserToAddRows = false;
+            Liste.ReadOnly = false;
+            Liste2.ReadOnly = true;
+            toplam();
 
 
         }
@@ -357,7 +421,7 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
         }
         private void Liste_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            // txtToplam.Text = toplam.ToString();
+            //txtToplam.Text = toplam.ToString();
             toplam();
             try
             {
@@ -419,6 +483,11 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
         private void btnKayıt_Click(object sender, EventArgs e)
         {
             YeniKayıt();
+        }
+
+        private void btnGuncelle_Click(object sender, EventArgs e)
+        {
+            Guncelle();
         }
     }
 }
