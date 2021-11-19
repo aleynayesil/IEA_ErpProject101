@@ -279,7 +279,7 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
         private void FormAc(int id)
         {
 
-            int i = 0, toplam = 0;
+            int i = 0;// toplam = 0;
             var kayitBul = db.tblStokGirisUst.Find(id);
             tblStokGirisUst ust = kayitBul;
             txtGenelNo.Text = ust.GenelNo.ToString();
@@ -304,10 +304,10 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
                 Liste.Rows[i].Cells[6].Value = k.UT;
                 Liste.Rows[i].Cells[7].Value = k.SKT;
                 Liste.Rows[i].Cells[8].Value = k.AlisFiyat;
-                toplam += (int)k.Adet;
+                //toplam += (int)k.Adet;
                 i++;
             }
-            txtToplam.Text = toplam.ToString();
+           // txtToplam.Text = toplam.ToString();
             Liste.AllowUserToAddRows = false;
             Liste.ReadOnly = true;
 
@@ -338,9 +338,27 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
                 MessageBox.Show(ex.Message);
             }
         }
-
+        private void toplam()
+        {
+            try
+            {
+                int a = 0;
+                for (int ii = 0; ii < Liste.Rows.Count; ii++)
+                {
+                    a +=Convert.ToInt32( Liste.Rows[ii].Cells[4].Value);
+                    txtToplam.Text = Convert.ToString(a);//parse işlemleri objelerde işe yaramaz.
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                MessageBox.Show("Girilen adet bilgisi yanlış");
+            }
+        }
         private void Liste_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+            // txtToplam.Text = toplam.ToString();
+            toplam();
             try
             {
                 if (e.ColumnIndex == 2)
