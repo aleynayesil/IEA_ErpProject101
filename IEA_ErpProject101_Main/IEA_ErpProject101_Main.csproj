@@ -115,6 +115,12 @@
     <Compile Include="Depoİslemleri\Stokİslemleri\frmStokGirisListe.Designer.cs">
       <DependentUpon>frmStokGirisListe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Depoİslemleri\Stokİslemleri\frmStokGuncelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Depoİslemleri\Stokİslemleri\frmStokGuncelle.Designer.cs">
+      <DependentUpon>frmStokGuncelle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entity\ErpProjectWMPModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -218,6 +224,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Depoİslemleri\Stokİslemleri\frmStokGirisListe.resx">
       <DependentUpon>frmStokGirisListe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depoİslemleri\Stokİslemleri\frmStokGuncelle.resx">
+      <DependentUpon>frmStokGuncelle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fonksiyonlar\Ortaklar.resx">
+      <DependentUpon>Ortaklar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>

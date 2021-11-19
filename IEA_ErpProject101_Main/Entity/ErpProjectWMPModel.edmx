@@ -107,6 +107,7 @@
           <Property Name="UT" Type="datetime" />
           <Property Name="SKT" Type="datetime" />
           <Property Name="AlisFiyat" Type="decimal" Precision="11" Scale="2" />
+          <Property Name="isActiveAlt" Type="bit" />
         </EntityType>
         <EntityType Name="tblStokGirisUst">
           <Key>
@@ -385,7 +386,6 @@ warning 6002: The table/view 'ErpProjectWMP.dbo.vwStokGiris' does not have a pri
             <End Role="tblCariler" EntitySet="tblCariler" />
             <End Role="tblPersonelDetay" EntitySet="tblPersonelDetay" />
           </AssociationSet>
-          <EntitySet Name="tblStokGirisAlt" EntityType="ErpProjectWMPModel.tblStokGirisAlt" />
           <EntitySet Name="tblStokDurum" EntityType="ErpProjectWMPModel.tblStokDurum" />
           <EntitySet Name="tblStokGirisUst" EntityType="ErpProjectWMPModel.tblStokGirisUst" />
           <AssociationSet Name="FK_tblStokGirisUst_tbCariGruplari" Association="ErpProjectWMPModel.FK_tblStokGirisUst_tbCariGruplari">
@@ -402,6 +402,7 @@ warning 6002: The table/view 'ErpProjectWMP.dbo.vwStokGiris' does not have a pri
             <End Role="tblUrunler" EntitySet="tblUrunler" />
           </AssociationSet>
           <EntitySet Name="vwStokGiris" EntityType="ErpProjectWMPModel.vwStokGiris" />
+          <EntitySet Name="tblStokGirisAlt" EntityType="ErpProjectWMPModel.tblStokGirisAlt" />
           </EntityContainer>
         <EntityType Name="tblCariGruplari">
           <Key>
@@ -490,22 +491,6 @@ warning 6002: The table/view 'ErpProjectWMP.dbo.vwStokGiris' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="tblStokGirisAlt">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="GenelNo" Type="Int32" />
-          <Property Name="SiraNo" Type="Int32" />
-          <Property Name="Barkod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="UrunKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LotSeriNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Adet" Type="Int32" />
-          <Property Name="Not" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="UT" Type="DateTime" Precision="3" />
-          <Property Name="SKT" Type="DateTime" Precision="3" />
-          <Property Name="AlisFiyat" Type="Decimal" Precision="11" Scale="2" />
-        </EntityType>
         <EntityType Name="tblStokDurum">
           <Key>
             <PropertyRef Name="Id" />
@@ -622,6 +607,23 @@ warning 6002: The table/view 'ErpProjectWMP.dbo.vwStokGiris' does not have a pri
           <Property Name="SKT" Type="DateTime" Precision="3" />
           <Property Name="AlisFiyat" Type="Decimal" Precision="11" Scale="2" />
         </EntityType>
+        <EntityType Name="tblStokGirisAlt">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GenelNo" Type="Int32" />
+          <Property Name="SiraNo" Type="Int32" />
+          <Property Name="Barkod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UrunKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LotSeriNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Adet" Type="Int32" />
+          <Property Name="Not" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UT" Type="DateTime" Precision="3" />
+          <Property Name="SKT" Type="DateTime" Precision="3" />
+          <Property Name="AlisFiyat" Type="Decimal" Precision="11" Scale="2" />
+          <Property Name="isActiveAlt" Type="Boolean" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -704,23 +706,6 @@ warning 6002: The table/view 'ErpProjectWMP.dbo.vwStokGiris' does not have a pri
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tblStokGirisAlt">
-            <EntityTypeMapping TypeName="ErpProjectWMPModel.tblStokGirisAlt">
-              <MappingFragment StoreEntitySet="tblStokGirisAlt">
-                <ScalarProperty Name="AlisFiyat" ColumnName="AlisFiyat" />
-                <ScalarProperty Name="SKT" ColumnName="SKT" />
-                <ScalarProperty Name="UT" ColumnName="UT" />
-                <ScalarProperty Name="Not" ColumnName="Not" />
-                <ScalarProperty Name="Adet" ColumnName="Adet" />
-                <ScalarProperty Name="LotSeriNo" ColumnName="LotSeriNo" />
-                <ScalarProperty Name="UrunKodu" ColumnName="UrunKodu" />
-                <ScalarProperty Name="Barkod" ColumnName="Barkod" />
-                <ScalarProperty Name="SiraNo" ColumnName="SiraNo" />
-                <ScalarProperty Name="GenelNo" ColumnName="GenelNo" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tblStokDurum">
             <EntityTypeMapping TypeName="ErpProjectWMPModel.tblStokDurum">
               <MappingFragment StoreEntitySet="tblStokDurum">
@@ -797,6 +782,24 @@ warning 6002: The table/view 'ErpProjectWMP.dbo.vwStokGiris' does not have a pri
                 <ScalarProperty Name="GirisTipi" ColumnName="GirisTipi" />
                 <ScalarProperty Name="CariAdi" ColumnName="CariAdi" />
                 <ScalarProperty Name="GrupAdi" ColumnName="GrupAdi" />
+                <ScalarProperty Name="GenelNo" ColumnName="GenelNo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblStokGirisAlt">
+            <EntityTypeMapping TypeName="ErpProjectWMPModel.tblStokGirisAlt">
+              <MappingFragment StoreEntitySet="tblStokGirisAlt">
+                <ScalarProperty Name="isActiveAlt" ColumnName="isActiveAlt" />
+                <ScalarProperty Name="AlisFiyat" ColumnName="AlisFiyat" />
+                <ScalarProperty Name="SKT" ColumnName="SKT" />
+                <ScalarProperty Name="UT" ColumnName="UT" />
+                <ScalarProperty Name="Not" ColumnName="Not" />
+                <ScalarProperty Name="Adet" ColumnName="Adet" />
+                <ScalarProperty Name="LotSeriNo" ColumnName="LotSeriNo" />
+                <ScalarProperty Name="UrunKodu" ColumnName="UrunKodu" />
+                <ScalarProperty Name="Barkod" ColumnName="Barkod" />
+                <ScalarProperty Name="SiraNo" ColumnName="SiraNo" />
                 <ScalarProperty Name="GenelNo" ColumnName="GenelNo" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>

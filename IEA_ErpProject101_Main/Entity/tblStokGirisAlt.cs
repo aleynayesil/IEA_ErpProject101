@@ -25,5 +25,6 @@ namespace IEA_ErpProject101_Main.Entity
         public Nullable<System.DateTime> UT { get; set; }
         public Nullable<System.DateTime> SKT { get; set; }
         public Nullable<decimal> AlisFiyat { get; set; }
+        public Nullable<bool> isActiveAlt { get; set; }
     }
 }
