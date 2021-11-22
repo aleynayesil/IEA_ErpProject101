@@ -383,6 +383,7 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
             this.SKT,
             this.AlisFiyat,
             this.Id});
+            this.Liste.ContextMenuStrip = this.contextMenuStrip1;
             this.Liste.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Liste.Location = new System.Drawing.Point(0, 41);
             this.Liste.MultiSelect = false;
@@ -586,6 +587,7 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
             this.güncelleToolStripMenuItem.Name = "güncelleToolStripMenuItem";
             this.güncelleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.güncelleToolStripMenuItem.Text = "Güncelle";
+            this.güncelleToolStripMenuItem.Click += new System.EventHandler(this.güncelleToolStripMenuItem_Click);
             // 
             // silToolStripMenuItem
             // 

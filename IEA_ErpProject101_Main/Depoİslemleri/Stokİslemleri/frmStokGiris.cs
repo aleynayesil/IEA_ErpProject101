@@ -363,27 +363,26 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
                 Liste.Rows[i].Cells[8].Value = k.AlisFiyat;
                 Liste.Rows[i].Cells[9].Value = k.Id;
 
-                Liste2.Rows.Add();
-                Liste2.Rows[i].Cells[0].Value = k.SiraNo;
-                Liste2.Rows[i].Cells[1].Value = k.Barkod;
-                Liste2.Rows[i].Cells[2].Value = k.UrunKodu;
-                Liste2.Rows[i].Cells[3].Value = k.LotSeriNo;
-                Liste2.Rows[i].Cells[4].Value = k.Adet;
-                Liste2.Rows[i].Cells[5].Value = k.Not;
-                Liste2.Rows[i].Cells[6].Value = k.UT;
-                Liste2.Rows[i].Cells[7].Value = k.SKT;
-                Liste2.Rows[i].Cells[8].Value = k.AlisFiyat;
+                //Liste2.Rows.Add();
+                //Liste2.Rows[i].Cells[0].Value = k.SiraNo;
+                //Liste2.Rows[i].Cells[1].Value = k.Barkod;
+                //Liste2.Rows[i].Cells[2].Value = k.UrunKodu;
+                //Liste2.Rows[i].Cells[3].Value = k.LotSeriNo;
+                //Liste2.Rows[i].Cells[4].Value = k.Adet;
+                //Liste2.Rows[i].Cells[5].Value = k.Not;
+                //Liste2.Rows[i].Cells[6].Value = k.UT;
+                //Liste2.Rows[i].Cells[7].Value = k.SKT;
+                //Liste2.Rows[i].Cells[8].Value = k.AlisFiyat;
                 //top2lam += (int)k.Adet;
                 i++;
             }
             // txtToplam.Text = toplam.ToString();
-            Liste.AllowUserToAddRows = true;
+            Liste.AllowUserToAddRows = false;
             Liste2.AllowUserToAddRows = false;
-            Liste.ReadOnly = false;
+            Liste.ReadOnly = true;
             Liste2.ReadOnly = true;
+            Liste.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             toplam();
-
-
         }
 
         #endregion
@@ -504,8 +503,47 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
             if (secimId>0)
             {
                 Home.Aktarma = secimId;
+                f.StokGuncelleAc();
             }
-            f.StokGuncelleAc();
+        }
+
+        private void güncelleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+                
+                if (secimId > 0)
+                {
+                    secimId = (int)Liste.CurrentRow.Cells[9].Value;
+                    Home.Aktarma = secimId;
+                    f.StokGuncelleAc();
+                }
+
+                listele();
+        
+        }
+
+        private void listele()
+        {
+            ErpProjectWMPEntities db = new ErpProjectWMPEntities();
+            int i = 0;
+            var alt = db.tblStokGirisAlt.Where(x => x.GenelNo.ToString() == txtGenelNo.Text);
+
+            Liste.Rows.Clear();
+            foreach (var k in alt)
+            {
+                Liste.Rows.Add();
+                Liste.Rows[i].Cells[0].Value = k.SiraNo;
+                Liste.Rows[i].Cells[1].Value = k.Barkod;
+                Liste.Rows[i].Cells[2].Value = k.UrunKodu;
+                Liste.Rows[i].Cells[3].Value = k.LotSeriNo;
+                Liste.Rows[i].Cells[4].Value = k.Adet;
+                Liste.Rows[i].Cells[5].Value = k.Not;
+                Liste.Rows[i].Cells[6].Value = k.UT;
+                Liste.Rows[i].Cells[7].Value = k.SKT;
+                Liste.Rows[i].Cells[8].Value = k.AlisFiyat;
+                Liste.Rows[i].Cells[9].Value = k.Id;
+                i++;
+            }
         }
     }
 }

@@ -30,7 +30,7 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
         private void Listele()
         {
             Liste.Rows.Clear();
-            int i = 0,sira=1;
+            int i = 0;
             var lst = (from s in db.tblStokGirisUst
                        where s.isActive == true
                        select s).ToList();
@@ -48,7 +48,6 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
                 Liste.Rows[i].Cells[4].Value = k.FaturaTarih;
                 Liste.Rows[i].Cells[5].Value = k.GirisTipi;
                 i++;
-                sira++;
             }
             Liste.AllowUserToAddRows = false;
             Liste.ReadOnly = true;
