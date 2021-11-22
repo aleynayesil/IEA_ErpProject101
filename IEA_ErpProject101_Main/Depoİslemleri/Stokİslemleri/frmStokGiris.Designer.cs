@@ -29,12 +29,13 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlTop = new System.Windows.Forms.Panel();
             this.btnKapat = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -62,16 +63,6 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
             this.btnKayıt = new System.Windows.Forms.Button();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.Liste = new System.Windows.Forms.DataGridView();
-            this.Liste2 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sira = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ukod = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,11 +73,26 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
             this.SKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AlisFiyat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Liste2 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ekleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.güncelleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.silToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlTop.SuspendLayout();
             this.pnlRight.SuspendLayout();
             this.pnlBottom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Liste2)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlTop
@@ -388,6 +394,79 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
             this.Liste.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.Liste_EditingControlShowing);
             this.Liste.DoubleClick += new System.EventHandler(this.Liste_DoubleClick);
             // 
+            // Sira
+            // 
+            this.Sira.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Sira.HeaderText = "Sıra";
+            this.Sira.Name = "Sira";
+            this.Sira.Visible = false;
+            // 
+            // barcode
+            // 
+            this.barcode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.barcode.HeaderText = "Barkod";
+            this.barcode.Name = "barcode";
+            this.barcode.Visible = false;
+            // 
+            // Ukod
+            // 
+            this.Ukod.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Ukod.HeaderText = "Urun Kodu";
+            this.Ukod.Name = "Ukod";
+            // 
+            // Lot_SeriNo
+            // 
+            this.Lot_SeriNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Lot_SeriNo.HeaderText = "Lot / Seri No";
+            this.Lot_SeriNo.Name = "Lot_SeriNo";
+            this.Lot_SeriNo.Width = 93;
+            // 
+            // GAdet
+            // 
+            this.GAdet.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.GAdet.HeaderText = "Giriş Adet";
+            this.GAdet.Name = "GAdet";
+            this.GAdet.Width = 77;
+            // 
+            // Not
+            // 
+            this.Not.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Not.HeaderText = "Not";
+            this.Not.Name = "Not";
+            // 
+            // UTarihi
+            // 
+            this.UTarihi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = "-";
+            this.UTarihi.DefaultCellStyle = dataGridViewCellStyle2;
+            this.UTarihi.HeaderText = "ÜT";
+            this.UTarihi.Name = "UTarihi";
+            this.UTarihi.Width = 47;
+            // 
+            // SKT
+            // 
+            this.SKT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle3.Format = "d";
+            dataGridViewCellStyle3.NullValue = "-";
+            this.SKT.DefaultCellStyle = dataGridViewCellStyle3;
+            this.SKT.HeaderText = "SKT";
+            this.SKT.Name = "SKT";
+            this.SKT.Width = 53;
+            // 
+            // AlisFiyat
+            // 
+            this.AlisFiyat.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.AlisFiyat.HeaderText = "Alış Fiyatı";
+            this.AlisFiyat.Name = "AlisFiyat";
+            this.AlisFiyat.Width = 75;
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.Visible = false;
+            // 
             // Liste2
             // 
             this.Liste2.AllowDrop = true;
@@ -485,80 +564,35 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.Width = 75;
             // 
-            // Sira
+            // contextMenuStrip1
             // 
-            this.Sira.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Sira.HeaderText = "Sıra";
-            this.Sira.Name = "Sira";
-            this.Sira.Visible = false;
-            this.Sira.Width = 50;
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ekleToolStripMenuItem,
+            this.güncelleToolStripMenuItem,
+            this.silToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 92);
             // 
-            // barcode
+            // ekleToolStripMenuItem
             // 
-            this.barcode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.barcode.HeaderText = "Barkod";
-            this.barcode.Name = "barcode";
-            this.barcode.Visible = false;
-            this.barcode.Width = 66;
+            this.ekleToolStripMenuItem.Image = global::IEA_ErpProject101_Main.Properties.Resources.Save_icon32x32;
+            this.ekleToolStripMenuItem.Name = "ekleToolStripMenuItem";
+            this.ekleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ekleToolStripMenuItem.Text = "Ekle";
             // 
-            // Ukod
+            // güncelleToolStripMenuItem
             // 
-            this.Ukod.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Ukod.HeaderText = "Urun Kodu";
-            this.Ukod.Name = "Ukod";
+            this.güncelleToolStripMenuItem.Image = global::IEA_ErpProject101_Main.Properties.Resources.Update32x32;
+            this.güncelleToolStripMenuItem.Name = "güncelleToolStripMenuItem";
+            this.güncelleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.güncelleToolStripMenuItem.Text = "Güncelle";
             // 
-            // Lot_SeriNo
+            // silToolStripMenuItem
             // 
-            this.Lot_SeriNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Lot_SeriNo.HeaderText = "Lot / Seri No";
-            this.Lot_SeriNo.Name = "Lot_SeriNo";
-            this.Lot_SeriNo.Width = 93;
-            // 
-            // GAdet
-            // 
-            this.GAdet.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.GAdet.HeaderText = "Giriş Adet";
-            this.GAdet.Name = "GAdet";
-            this.GAdet.Width = 77;
-            // 
-            // Not
-            // 
-            this.Not.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Not.HeaderText = "Not";
-            this.Not.Name = "Not";
-            // 
-            // UTarihi
-            // 
-            this.UTarihi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = "-";
-            this.UTarihi.DefaultCellStyle = dataGridViewCellStyle2;
-            this.UTarihi.HeaderText = "ÜT";
-            this.UTarihi.Name = "UTarihi";
-            this.UTarihi.Width = 47;
-            // 
-            // SKT
-            // 
-            this.SKT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle3.Format = "d";
-            dataGridViewCellStyle3.NullValue = "-";
-            this.SKT.DefaultCellStyle = dataGridViewCellStyle3;
-            this.SKT.HeaderText = "SKT";
-            this.SKT.Name = "SKT";
-            this.SKT.Width = 53;
-            // 
-            // AlisFiyat
-            // 
-            this.AlisFiyat.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.AlisFiyat.HeaderText = "Alış Fiyatı";
-            this.AlisFiyat.Name = "AlisFiyat";
-            this.AlisFiyat.Width = 75;
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.Visible = false;
+            this.silToolStripMenuItem.Image = global::IEA_ErpProject101_Main.Properties.Resources.Sil24x24;
+            this.silToolStripMenuItem.Name = "silToolStripMenuItem";
+            this.silToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.silToolStripMenuItem.Text = "Sil";
             // 
             // frmStokGiris
             // 
@@ -581,6 +615,7 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
             this.pnlBottom.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Liste2)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -634,5 +669,9 @@ namespace IEA_ErpProject101_Main.Depoİslemleri.Stokİslemleri
         private System.Windows.Forms.DataGridViewTextBoxColumn SKT;
         private System.Windows.Forms.DataGridViewTextBoxColumn AlisFiyat;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem ekleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem güncelleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem silToolStripMenuItem;
     }
 }
